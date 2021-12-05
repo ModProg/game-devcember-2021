@@ -1,0 +1,1 @@
+wwise/bin/linux/debug/libWwiseGDNative.so filter=lfs diff=lfs merge=lfs -text
