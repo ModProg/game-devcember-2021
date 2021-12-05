@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://wwise/runtime/nodes/ak_event.gd" type="Script" id=1]
+[ext_resource path="res://wwise/runtime/nodes/ak_bank.gd" type="Script" id=2]
+[ext_resource path="res://wwise/runtime/nodes/ak_listener.gd" type="Script" id=3]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Sound Bank" type="Node" parent="."]
+script = ExtResource( 2 )
+bank = 3471173579
+load_on = 3
+
+[node name="Music event" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39933, 0, 0 )
+script = ExtResource( 1 )
+trigger_on = 3
+
+[node name="Listener" type="Spatial" parent="."]
+script = ExtResource( 3 )

@@ -1,0 +1,26 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Linux",
+  "BasePlatform": "Linux",
+  "SchemaVersion": "12",
+  "SoundbankVersion": "140",
+  "RootPaths": {
+   "ProjectRoot": "C:\\Users\\domha\\OneDrive\\Desktop\\Devcember wwise Project\\",
+   "SourceFilesRoot": "C:\\Users\\domha\\OneDrive\\Desktop\\Devcember wwise Project\\.cache\\Linux\\",
+   "SoundBanksRoot": "C:\\Users\\domha\\OneDrive\\Documents\\GitHub\\game-devcember-2021\\wwise\\GeneratedSoundBanks\\Linux\\",
+   "ExternalSourcesInputFile": "",
+   "ExternalSourcesOutputRoot": "C:\\Users\\domha\\OneDrive\\Desktop\\Devcember wwise Project\\GeneratedSoundBanks\\Linux"
+  },
+  "SoundBanks": [
+   {
+    "Id": "1355168291",
+    "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
+    "Language": "SFX",
+    "Hash": "2847894598",
+    "ObjectPath": "Init",
+    "ShortName": "Init",
+    "Path": "Init.bnk"
+   }
+  ]
+ }
+}

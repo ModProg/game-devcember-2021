@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
+	<RootPaths>
+		<ProjectRoot>C:\Users\domha\OneDrive\Desktop\Devcember wwise Project\</ProjectRoot>
+		<SourceFilesRoot>C:\Users\domha\OneDrive\Desktop\Devcember wwise Project\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>C:\Users\domha\OneDrive\Documents\GitHub\game-devcember-2021\wwise\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>C:\Users\domha\OneDrive\Desktop\Devcember wwise Project\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="3690994985">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>1355168291.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3471173579" Language="SFX" Hash="35819793">
+			<ObjectPath>\SoundBanks\Default Work Unit\Music_Test_SoundBank</ObjectPath>
+			<ShortName>Music_Test_SoundBank</ShortName>
+			<Path>3471173579.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1692571924" Name="Music_test_Event" ObjectPath="\Events\Default Work Unit\Music_test_Event">
+					<IncludedMemoryFiles>
+						<File Id="897313274" Language="SFX">
+							<ShortName>Gameplay.wav</ShortName>
+							<Path>SFX\Gameplay_10C4C929.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+			</IncludedEvents>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
