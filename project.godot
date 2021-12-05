@@ -32,13 +32,13 @@ config/icon="res://icon.png"
 
 [autoload]
 
-WwiseSettings="*res://wwise/wwise_settings.gd"
+WwiseSettings="res://wwise/wwise_settings.gd"
 Wwise="*res://wwise/bin/wwise-gdnative.gdns"
 Waapi="*res://wwise/bin/waapi-gdnative-debug.gdns"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/waapi_picker/plugin.cfg", "res://addons/wwise_build_export/plugin.cfg", "res://addons/wwise_ids_converter/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/waapi_picker/plugin.cfg", "res://addons/wwise_build_export/plugin.cfg", "res://addons/wwise_custom_nodes/plugin.cfg", "res://addons/wwise_ids_converter/plugin.cfg" )
 
 [physics]
 
