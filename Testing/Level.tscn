@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Testing/player.gd" type="Script" id=1]
 
@@ -6,8 +6,11 @@
 extents = Vector2( 159.5, 79.5 )
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 15.0
-height = 34.0
+radius = 17.0
+height = 30.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 26 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -60,15 +63,86 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2( 166, 222 )
+scale = Vector2( 0.33364, 0.108241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D5"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2( 32, 146 )
+scale = Vector2( 0.33364, 0.108241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D6"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+position = Vector2( 161, 49 )
+scale = Vector2( 0.33364, 0.108241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D7"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+position = Vector2( 439, 176 )
+scale = Vector2( 0.33364, 0.108241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D8"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 position = Vector2( 133, 357 )
+collision_layer = 2
 script = ExtResource( 1 )
+jump_max_height = 100.0
+jump_cut_height = 60.0
+jump_time_to_peak = 0.3
+jump_time_to_fall = 0.3
+coyote_time = 0.2
 
 [node name="ColorRect" type="ColorRect" parent="KinematicBody2D"]
 margin_left = -16.0
 margin_top = -28.0
 margin_right = 16.0
 margin_bottom = 33.0
+color = Color( 0.980392, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -76,3 +150,10 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 position = Vector2( 0, 2 )
 shape = SubResource( 2 )
+
+[node name="GroundDetector" type="Area2D" parent="KinematicBody2D"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/GroundDetector"]
+position = Vector2( 0, 37 )
+shape = SubResource( 3 )
