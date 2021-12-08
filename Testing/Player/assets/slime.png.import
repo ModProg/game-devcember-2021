@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/slime.png-48baa026c928ca2069495853f965da48.stex"
+path="res://.import/slime.png-a9ff7b5bd2c0e6536800033104839b4b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://example/old_example/assets/slime.png"
-dest_files=[ "res://.import/slime.png-48baa026c928ca2069495853f965da48.stex" ]
+source_file="res://Testing/Player/assets/slime.png"
+dest_files=[ "res://.import/slime.png-a9ff7b5bd2c0e6536800033104839b4b.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true

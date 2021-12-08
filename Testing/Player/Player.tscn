@@ -6,12 +6,12 @@
 [ext_resource path="res://addons/xsm/state.gd" type="Script" id=5]
 [ext_resource path="res://Testing/Player/movements/idle.gd" type="Script" id=6]
 [ext_resource path="res://Testing/Player/movements/on_ground.gd" type="Script" id=7]
-[ext_resource path="res://example/old_example/assets/slime.png" type="Texture" id=8]
+[ext_resource path="res://Testing/Player/assets/slime.png" type="Texture" id=8]
 [ext_resource path="res://Testing/Player/movements/land.gd" type="Script" id=11]
 [ext_resource path="res://Testing/Player/movement.gd" type="Script" id=13]
 [ext_resource path="res://Testing/Player/movements/walk.gd" type="Script" id=15]
 [ext_resource path="res://Testing/Player/movements/in_air.gd" type="Script" id=16]
-[ext_resource path="res://example/old_example/player.gd" type="Script" id=17]
+[ext_resource path="res://Testing/Player/player.gd" type="Script" id=17]
 
 [sub_resource type="CapsuleShape2D" id=15]
 
