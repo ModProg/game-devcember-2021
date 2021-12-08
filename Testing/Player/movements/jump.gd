@@ -17,7 +17,9 @@ func _on_update(_delta):
 		jumping = false
 
 	if jumping:
-		target.velocity.y = -target.jump_speed
+		target.velocity.y = -target.jump_speed * _delta
+		if Input.is_action_just_pressed("jump") and not target.double_jumped:
+			var _s = change_state("DoubleJump")
 
 
 func _on_exit(_args):
