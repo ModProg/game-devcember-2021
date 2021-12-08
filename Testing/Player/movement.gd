@@ -6,10 +6,10 @@ extends State
 func _on_update(delta):
 	target.dir = 0
 
-	if Input.is_action_pressed("left"):
+	if Input.is_action_pressed("move_left"):
 		target.dir = -1
 		if !target.get_node("Sprite").flip_h: target.get_node("Sprite").flip_h = true
-	elif Input.is_action_pressed("right"):
+	elif Input.is_action_pressed("move_right"):
 		target.dir = 1
 		if target.get_node("Sprite").flip_h: target.get_node("Sprite").flip_h = false
 

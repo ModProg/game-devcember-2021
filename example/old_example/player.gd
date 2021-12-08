@@ -10,13 +10,13 @@ var dir = 0
 export (int) var gravity = 2500
 export (int) var acceleration = 15
 
-export (int) var ground_speed = 680
+export (int) var ground_speed = 380
 export (int) var ground_friction = 6
 export (int) var walk_margin = 80
 export (int) var run_margin = 150
 
 export (int) var jump_speed = 450
-export (int) var air_speed = 610
+export (int) var air_speed = 380
 export (int) var air_friction = 8
 
 export (float) var coyote_time = 0.1
