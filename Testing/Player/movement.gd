@@ -5,7 +5,7 @@ extends State
 # FUNCTIONS TO INHERIT #
 func _on_update(delta):
 	var x_input = Input.get_axis("move_left", "move_right")
-	target.movement = sign(x_input)
+	target.movement = x_input
 	
 	if abs(x_input) > 0:
 		target.get_node("Sprite").flip_h = x_input < 0
