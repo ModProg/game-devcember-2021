@@ -15,7 +15,7 @@ func _on_update(_delta):
 		var _s = change_state("OnGround/Idle")
 	elif abs(target.velocity.x) > target.run_margin:
 		if !is_playing("Run"): play("Run")
-	elif target.dir == 0:
+	elif target.movement == 0:
 		if !is_playing("Brake"): play("Brake")
 	else:
 		if !is_playing("Walk"): play("Walk")

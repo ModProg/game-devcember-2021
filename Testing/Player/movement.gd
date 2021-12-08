@@ -4,17 +4,14 @@ extends State
 
 # FUNCTIONS TO INHERIT #
 func _on_update(delta):
-	target.dir = 0
-
-	if Input.is_action_pressed("move_left"):
-		target.dir = -1
-		if !target.get_node("Sprite").flip_h: target.get_node("Sprite").flip_h = true
-	elif Input.is_action_pressed("move_right"):
-		target.dir = 1
-		if target.get_node("Sprite").flip_h: target.get_node("Sprite").flip_h = false
+	var x_input = Input.get_axis("move_left", "move_right")
+	target.movement = sign(x_input)
+	
+	if abs(x_input) > 0:
+		target.get_node("Sprite").flip_h = x_input < 0
 
 	target.velocity.y += delta * target.gravity
-
+	
 
 func _after_update(_delta):
 	target.velocity = target.move_and_slide(target.velocity, Vector2.UP)
