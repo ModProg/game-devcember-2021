@@ -8,9 +8,6 @@ extents = Vector2( 159.5, 79.5 )
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 506, 303 )
-
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2( -5, 438 )
 scale = Vector2( 3.28496, 1.06183 )
@@ -123,6 +120,9 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 160, 375 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
 
 [node name="Debugger" type="Node" parent="."]
 script = ExtResource( 2 )
