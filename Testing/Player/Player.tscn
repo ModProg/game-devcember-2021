@@ -1,5 +1,6 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
+[ext_resource path="res://Testing/Player/movements/double_jump.gd" type="Script" id=1]
 [ext_resource path="res://Testing/Player/movements/fall.gd" type="Script" id=2]
 [ext_resource path="res://addons/xsm/state_root.gd" type="Script" id=3]
 [ext_resource path="res://Testing/Player/movements/jump.gd" type="Script" id=4]
@@ -306,6 +307,11 @@ animation_player = null
 
 [node name="Jump" type="Node" parent="StateRoot/RegionMovement/InAir"]
 script = ExtResource( 4 )
+fsm_owner = null
+animation_player = null
+
+[node name="DoubleJump" type="Node" parent="StateRoot/RegionMovement/InAir"]
+script = ExtResource( 1 )
 fsm_owner = null
 animation_player = null
 
