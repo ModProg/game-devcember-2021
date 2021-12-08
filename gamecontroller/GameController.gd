@@ -7,7 +7,7 @@ var loading_screen = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	loading_screen = get_node("/root/LoadingScreen") as Node
+	loading_screen = get_node("/root/GameController/LoadingScreen") as Node
 	if loading_screen != null:
 		loading_screen.hide()
 	var root = get_tree().get_root()
