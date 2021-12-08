@@ -24,11 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/PlatformerBody2D/platformer_body_2d.gd"
 }, {
-"base": "PlatformerBody2D",
-"class": "Player",
-"language": "GDScript",
-"path": "res://Testing/player.gd"
-}, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
@@ -43,7 +38,6 @@ _global_script_class_icons={
 "AK": "",
 "AkUtils": "",
 "PlatformerBody2D": "",
-"Player": "",
 "State": "",
 "StateRoot": ""
 }

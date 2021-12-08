@@ -1,0 +1,335 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Testing/Player/movements/fall.gd" type="Script" id=2]
+[ext_resource path="res://addons/xsm/state_root.gd" type="Script" id=3]
+[ext_resource path="res://Testing/Player/movements/jump.gd" type="Script" id=4]
+[ext_resource path="res://addons/xsm/state.gd" type="Script" id=5]
+[ext_resource path="res://Testing/Player/movements/idle.gd" type="Script" id=6]
+[ext_resource path="res://Testing/Player/movements/on_ground.gd" type="Script" id=7]
+[ext_resource path="res://example/old_example/assets/slime.png" type="Texture" id=8]
+[ext_resource path="res://Testing/Player/movements/land.gd" type="Script" id=11]
+[ext_resource path="res://Testing/Player/movement.gd" type="Script" id=13]
+[ext_resource path="res://Testing/Player/movements/walk.gd" type="Script" id=15]
+[ext_resource path="res://Testing/Player/movements/in_air.gd" type="Script" id=16]
+[ext_resource path="res://example/old_example/player.gd" type="Script" id=17]
+
+[sub_resource type="CapsuleShape2D" id=15]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Brake"
+length = 0.02
+loop = true
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 6 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.02
+loop = true
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Fall"
+length = 0.02
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.02
+loop = true
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "GreenToPurple"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0862745, 0.513726, 0.0941176, 1 ), Color( 0.517647, 0.0784314, 0.85098, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.02
+loop = true
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.12
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.08 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 3, 4 ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.1
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 3 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("StateRoot/RegionMovement/OnGround/Land")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_land_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "OrangeToGreen"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.933333, 0.556863, 0.156863, 1 ), Color( 0.0862745, 0.513726, 0.0941176, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.517647, 0.0784314, 0.85098, 1 ), Color( 0.933333, 0.556863, 0.156863, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.02
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 5 ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.2
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 1, 0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("StateRoot/RegionMovement/InAir/Fall")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_on_top_curve_finished"
+} ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.02
+loop = true
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 512, 420 )
+script = ExtResource( 17 )
+
+[node name="StateRoot" type="Node" parent="."]
+script = ExtResource( 3 )
+has_regions = true
+fsm_owner = NodePath("..")
+animation_player = NodePath("../AnimationPlayer")
+
+[node name="RegionMovement" type="Node" parent="StateRoot"]
+script = ExtResource( 13 )
+fsm_owner = null
+animation_player = null
+
+[node name="OnGround" type="Node" parent="StateRoot/RegionMovement"]
+script = ExtResource( 7 )
+fsm_owner = null
+animation_player = null
+
+[node name="Idle" type="Node" parent="StateRoot/RegionMovement/OnGround"]
+script = ExtResource( 6 )
+fsm_owner = null
+animation_player = null
+
+[node name="Land" type="Node" parent="StateRoot/RegionMovement/OnGround"]
+script = ExtResource( 11 )
+fsm_owner = null
+animation_player = null
+
+[node name="Walk" type="Node" parent="StateRoot/RegionMovement/OnGround"]
+script = ExtResource( 15 )
+fsm_owner = null
+animation_player = null
+
+[node name="InAir" type="Node" parent="StateRoot/RegionMovement"]
+script = ExtResource( 16 )
+fsm_owner = null
+animation_player = null
+
+[node name="Idle" type="Node" parent="StateRoot/RegionMovement/InAir"]
+script = ExtResource( 5 )
+fsm_owner = null
+animation_player = null
+
+[node name="Fall" type="Node" parent="StateRoot/RegionMovement/InAir"]
+script = ExtResource( 2 )
+fsm_owner = null
+animation_player = null
+
+[node name="Jump" type="Node" parent="StateRoot/RegionMovement/InAir"]
+script = ExtResource( 4 )
+fsm_owner = null
+animation_player = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -9 )
+shape = SubResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.933333, 0.556863, 0.156863, 1 )
+texture = ExtResource( 8 )
+hframes = 7
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Brake = SubResource( 2 )
+anims/Crouch = SubResource( 3 )
+anims/Fall = SubResource( 4 )
+anims/FlyUp = SubResource( 5 )
+anims/GreenToPurple = SubResource( 6 )
+anims/Idle = SubResource( 7 )
+anims/Jump = SubResource( 8 )
+anims/Land = SubResource( 9 )
+anims/OrangeToGreen = SubResource( 10 )
+anims/PurpleToOrange = SubResource( 11 )
+anims/Run = SubResource( 12 )
+anims/TopCurve = SubResource( 13 )
+anims/Walk = SubResource( 14 )

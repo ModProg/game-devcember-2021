@@ -17,5 +17,3 @@ func _on_update(delta):
 	elif !target.is_on_floor():
 		get_node("../InAir/Fall").add_timer("CoyoteTime", target.coyote_time)
 		var _s = change_state("Fall")
-	elif abs(target.velocity.x) < target.walk_margin && Input.is_action_just_pressed("crouch"):
-		var _s = change_state("Crouch")
