@@ -29,17 +29,23 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Testing/player.gd"
 }, {
-"base": "PlatformerBody2D",
-"class": "Zombie",
+"base": "Node",
+"class": "State",
 "language": "GDScript",
-"path": "res://demo/zombie.gd"
+"path": "res://addons/xsm/state.gd"
+}, {
+"base": "State",
+"class": "StateRoot",
+"language": "GDScript",
+"path": "res://addons/xsm/state_root.gd"
 } ]
 _global_script_class_icons={
 "AK": "",
 "AkUtils": "",
 "PlatformerBody2D": "",
 "Player": "",
-"Zombie": ""
+"State": "",
+"StateRoot": ""
 }
 
 [application]
@@ -57,7 +63,7 @@ Waapi="*res://wwise/bin/waapi-gdnative-debug.gdns"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/waapi_picker/plugin.cfg", "res://addons/wwise_build_export/plugin.cfg", "res://addons/wwise_custom_nodes/plugin.cfg", "res://addons/wwise_ids_converter/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/PlatformerBody2D/plugin.cfg", "res://addons/waapi_picker/plugin.cfg", "res://addons/wwise_build_export/plugin.cfg", "res://addons/wwise_custom_nodes/plugin.cfg", "res://addons/wwise_ids_converter/plugin.cfg", "res://addons/xsm/plugin.cfg" )
 
 [input]
 
