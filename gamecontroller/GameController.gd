@@ -7,14 +7,14 @@ var loading_screen = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	loading_screen = get_node("/root/GameController/LoadingScreen") as Node
+	loading_screen = get_node("/root/GameController/LoadingScreen") as Control
 	if loading_screen != null:
 		loading_screen.hide()
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
 
 func start_game () -> void:
-	#Set PlayerStatus
+	#Set default PlayerStatus
 	call_deferred("_loadScene", first_level)
 
 func load_level (scenepath) -> void:
@@ -22,7 +22,6 @@ func load_level (scenepath) -> void:
 
 func _load_scene (scenepath) -> void:
 	_fade_out ()
-	print_debug("aca")
 	current_scene.free()
 	var s = ResourceLoader.load(scenepath)
 	current_scene = s.instance()

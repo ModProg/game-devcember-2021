@@ -1,9 +1,64 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://gamecontroller/GameController.gd" type="Script" id=1]
 [ext_resource path="res://gamecontroller/LoadingScreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/xsm/state_root.gd" type="Script" id=3]
+[ext_resource path="res://gamecontroller/GameEndState.gd" type="Script" id=4]
+[ext_resource path="res://gamecontroller/SplashScreenState.gd" type="Script" id=5]
+[ext_resource path="res://gamecontroller/MainMenuState.gd" type="Script" id=6]
+[ext_resource path="res://gamecontroller/PlayingState.gd" type="Script" id=7]
+[ext_resource path="res://gamecontroller/LoadingLevelState.gd" type="Script" id=8]
+[ext_resource path="res://gamecontroller/LoadingCheckPointState.gd" type="Script" id=9]
+[ext_resource path="res://gamecontroller/PauseState.gd" type="Script" id=10]
+[ext_resource path="res://gamecontroller/GameOverState.gd" type="Script" id=11]
 
 [node name="GameController" type="Node"]
+pause_mode = 2
 script = ExtResource( 1 )
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
 [node name="LoadingScreen" parent="." instance=ExtResource( 2 )]
+
+[node name="GameStateRoot" type="Node" parent="."]
+script = ExtResource( 3 )
+fsm_owner = NodePath("..")
+animation_player = NodePath("../AnimationPlayer")
+
+[node name="SplashScreenState" type="Node" parent="GameStateRoot"]
+script = ExtResource( 5 )
+fsm_owner = null
+animation_player = null
+
+[node name="MainMenuState" type="Node" parent="GameStateRoot"]
+script = ExtResource( 6 )
+fsm_owner = null
+animation_player = null
+
+[node name="PlayingState" type="Node" parent="GameStateRoot"]
+script = ExtResource( 7 )
+fsm_owner = null
+animation_player = null
+
+[node name="LoadingLevelState" type="Node" parent="GameStateRoot"]
+script = ExtResource( 8 )
+
+[node name="LoadingCheckPointState" type="Node" parent="GameStateRoot"]
+script = ExtResource( 9 )
+fsm_owner = null
+animation_player = null
+
+[node name="PauseState" type="Node" parent="GameStateRoot"]
+script = ExtResource( 10 )
+fsm_owner = null
+animation_player = null
+
+[node name="GameOverState" type="Node" parent="GameStateRoot"]
+script = ExtResource( 11 )
+fsm_owner = null
+animation_player = null
+
+[node name="GameEndState" type="Node" parent="GameStateRoot"]
+script = ExtResource( 4 )
+fsm_owner = null
+animation_player = null

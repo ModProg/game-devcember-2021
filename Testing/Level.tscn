@@ -14,9 +14,6 @@ extents = Vector2( 16, 26 )
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 506, 303 )
-
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2( -5, 438 )
 scale = Vector2( 3.28496, 1.06183 )
@@ -157,3 +154,6 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/GroundDetector"]
 position = Vector2( 0, 37 )
 shape = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
+position = Vector2( 0, 1 )
