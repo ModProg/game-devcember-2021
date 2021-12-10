@@ -16,11 +16,11 @@ onready var last_target_pos = target_node.global_position
 
 var attractors = []
 
-func _get_attractor_blend_factor(current_pos: Vector2, attractor: CameraAttractor) -> Vector2:
+func _get_attractor_blend_factor(current_pos: Vector2, attractor: CameraAttractor) -> float:
 	var pos = attractor.global_position
 	var distance = (pos - current_pos).length()
 	var factor = max(distance - attractor.inner_radius, 0) / (attractor.outer_radius - attractor.inner_radius)
-	return 1 - factor
+	return ease(1 - factor, 2)
 
 
 func _aggregate_attractors_desired_pos() -> void:
