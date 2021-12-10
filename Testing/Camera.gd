@@ -9,6 +9,7 @@ export (float) var acceleration = 1
 var target_vel := Vector2(0, 0)
 var is_snapped_to_attractor := false
 var attracted_pos := Vector2.ZERO
+var closest_attractor_factor := 0.0
 
 onready var target_node := get_node(target) as PhysicsBody2D
 onready var attractor_trigger_node := $CameraTrigger
@@ -26,10 +27,13 @@ func _get_attractor_blend_factor(current_pos: Vector2, attractor: CameraAttracto
 func _aggregate_attractors_desired_pos() -> void:
 	var current_pos = target_node.global_position
 	attracted_pos = Vector2.ZERO
+	closest_attractor_factor = 0.0
 	for val in attractors:
 		var attractor := val as CameraAttractor
 		var pos = attractor.global_position
 		var factor = _get_attractor_blend_factor(current_pos, attractor)
+		if factor > closest_attractor_factor:
+			closest_attractor_factor = factor
 		if is_equal_approx(factor, 1):
 			is_snapped_to_attractor = true
 			attracted_pos = pos
@@ -53,7 +57,8 @@ func _physics_process(delta: float) -> void:
 	# When player is barely moving don't return camera to center
 	# Feels more natural that way for some reason
 	if target_vel.length_squared() > 0.2 and not is_snapped_to_attractor:
-		desired_camera_pos = desired_camera_pos + (target_vel * velocity_sensitivity)
+		var inv_attractor_factor = 1 - closest_attractor_factor
+		desired_camera_pos = desired_camera_pos + (target_vel * velocity_sensitivity * inv_attractor_factor)
 	global_position = lerp(global_position, desired_camera_pos, acceleration * delta)
 	last_target_pos = current_target_pos
 	if debug:

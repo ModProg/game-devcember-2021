@@ -225,9 +225,9 @@ script = ExtResource( 2 )
 debug = false
 
 [node name="CameraAttractor" type="Node2D" parent="."]
-position = Vector2( 874, 261 )
+position = Vector2( 819, 243 )
 script = ExtResource( 4 )
-outer_radius = 352.941
+outer_radius = 529.412
 inner_radius = 176.471
 debug = true
 
