@@ -56,7 +56,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GameController="*res://gamecontroller/GameController.tscn"
+GameController="*res://Testing/gamecontroller/GameController.tscn"
 WwiseSettings="res://wwise/wwise_settings.gd"
 Wwise="*res://wwise/bin/wwise-gdnative.gdns"
 Waapi="*res://wwise/bin/waapi-gdnative-debug.gdns"

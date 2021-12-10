@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://gamecontroller/GameController.gd" type="Script" id=1]
-[ext_resource path="res://gamecontroller/LoadingScreen.tscn" type="PackedScene" id=2]
-[ext_resource path="res://gamecontroller/PauseMenu.tscn" type="PackedScene" id=3]
-[ext_resource path="res://gamecontroller/GameOverScreen.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Testing/gamecontroller/GameController.gd" type="Script" id=1]
+[ext_resource path="res://Testing/gamecontroller/LoadingScreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Testing/gamecontroller/PauseMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Testing/gamecontroller/GameOverScreen.tscn" type="PackedScene" id=4]
 
 [node name="GameController" type="Node"]
 pause_mode = 2
