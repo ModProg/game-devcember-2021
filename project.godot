@@ -19,6 +19,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://wwise/runtime/helpers/ak_utils.gd"
 }, {
+"base": "",
+"class": "GitAPI",
+"language": "NativeScript",
+"path": "res://addons/godot-git-plugin/git_api.gdns"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Testing/Player/player.gd"
+}, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
@@ -32,6 +42,8 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "AK": "",
 "AkUtils": "",
+"GitAPI": "",
+"Player": "",
 "State": "",
 "StateRoot": ""
 }
@@ -50,7 +62,11 @@ Waapi="*res://wwise/bin/waapi-gdnative-debug.gdns"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/waapi_picker/plugin.cfg", "res://addons/wwise_build_export/plugin.cfg", "res://addons/wwise_custom_nodes/plugin.cfg", "res://addons/wwise_ids_converter/plugin.cfg", "res://addons/xsm/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/nodepath-filter/plugin.cfg", "res://addons/waapi_picker/plugin.cfg", "res://addons/wwise_build_export/plugin.cfg", "res://addons/wwise_custom_nodes/plugin.cfg", "res://addons/wwise_ids_converter/plugin.cfg", "res://addons/xsm/plugin.cfg" )
+
+[gdnative]
+
+singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
 
 [input]
 

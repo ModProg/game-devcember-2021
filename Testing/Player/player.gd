@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Player
 # All the logic is handled by the xsm below
 # The Player script is only declaring variables
 # Those variables can be acccessed in your States with target.variable
