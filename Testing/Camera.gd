@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 	var desired_camera_pos = attracted_pos
 	# When player is barely moving don't return camera to center
 	# Feels more natural that way for some reason
-	if target_vel.length_squared() > 0.2 and not is_snapped_to_attractor:
+	if target_vel.length_squared() > 0.2:
 		var inv_attractor_factor = 1 - closest_attractor_factor
 		desired_camera_pos = desired_camera_pos + (target_vel * velocity_sensitivity * inv_attractor_factor)
 	global_position = lerp(global_position, desired_camera_pos, acceleration * delta)
