@@ -10,11 +10,11 @@ func set_outer_radius(value: float) -> void:
 	outer_radius = value
 	inner_radius = min(inner_radius, value)
 	update()
-	
+
 func set_inner_radius(value: float) -> void:
 	inner_radius = min(outer_radius, value)
 	update()
-	
+
 func set_debug(value: bool) -> void:
 	debug = value
 	update()
@@ -28,7 +28,7 @@ func _draw() -> void:
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
-	
+
 	# Create area 2d for collisions with camera
 	var shape = CircleShape2D.new()
 	shape.radius = outer_radius
@@ -39,4 +39,4 @@ func _ready() -> void:
 	area.monitoring = false
 	area.add_child(collision)
 	add_child(area)
-	
+

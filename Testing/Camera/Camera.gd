@@ -40,17 +40,17 @@ func _aggregate_attractors_desired_pos() -> void:
 			return
 		attracted_pos += lerp(current_pos, pos, factor)
 	if len(attractors) > 0:
-		attracted_pos = attracted_pos / len(attractors)
+		attracted_pos /= len(attractors)
 	else:
 		attracted_pos = current_pos
-	
+
 	is_snapped_to_attractor = false
 
 
 func _physics_process(delta: float) -> void:
 	var current_target_pos := target_node.global_position
 	attractor_trigger_node.global_position = current_target_pos
-	
+
 	target_vel = current_target_pos - last_target_pos
 	_aggregate_attractors_desired_pos()
 	var desired_camera_pos = attracted_pos

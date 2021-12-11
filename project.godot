@@ -19,10 +19,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://wwise/runtime/helpers/ak_utils.gd"
 }, {
-"base": "Node2D",
+"base": "Reference",
 "class": "CameraAttractor",
 "language": "GDScript",
-"path": "res://Testing/CameraAttractor.gd"
+"path": "res://Testing/Camera/CameraAttractor.gd"
 }, {
 "base": "",
 "class": "GitAPI",
@@ -32,7 +32,7 @@ _global_script_classes=[ {
 "base": "Camera2D",
 "class": "MainCamera",
 "language": "GDScript",
-"path": "res://Testing/Camera.gd"
+"path": "res://Testing/Camera/Camera.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -79,7 +79,7 @@ window/stretch/aspect="keep_width"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/waapi_picker/plugin.cfg", "res://addons/wwise_build_export/plugin.cfg", "res://addons/wwise_custom_nodes/plugin.cfg", "res://addons/wwise_ids_converter/plugin.cfg", "res://addons/xsm/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/nodepath-filter/plugin.cfg", "res://addons/waapi_picker/plugin.cfg", "res://addons/wwise_build_export/plugin.cfg", "res://addons/wwise_custom_nodes/plugin.cfg", "res://addons/wwise_ids_converter/plugin.cfg", "res://addons/xsm/plugin.cfg" )
 
 [gdnative]
 
