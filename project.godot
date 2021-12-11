@@ -24,10 +24,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Testing/CameraAttractor.gd"
 }, {
+"base": "",
+"class": "GitAPI",
+"language": "NativeScript",
+"path": "res://addons/godot-git-plugin/git_api.gdns"
+}, {
 "base": "Camera2D",
 "class": "MainCamera",
 "language": "GDScript",
 "path": "res://Testing/Camera.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Testing/Player/player.gd"
 }, {
 "base": "Node",
 "class": "State",
@@ -43,7 +53,9 @@ _global_script_class_icons={
 "AK": "",
 "AkUtils": "",
 "CameraAttractor": "",
+"GitAPI": "",
 "MainCamera": "",
+"Player": "",
 "State": "",
 "StateRoot": ""
 }
@@ -68,6 +80,10 @@ window/stretch/aspect="keep_width"
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/waapi_picker/plugin.cfg", "res://addons/wwise_build_export/plugin.cfg", "res://addons/wwise_custom_nodes/plugin.cfg", "res://addons/wwise_ids_converter/plugin.cfg", "res://addons/xsm/plugin.cfg" )
+
+[gdnative]
+
+singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
 
 [input]
 
