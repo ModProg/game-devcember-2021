@@ -8,7 +8,7 @@
 [node name="GameController" type="Node"]
 pause_mode = 2
 script = ExtResource( 1 )
-first_level = "res://Testing/Level2.tscn"
+first_level = "res://Testing/Level.tscn"
 main_menu_scene = "res://Testing/MainMenu.tscn"
 player_status = "res://Testing/PlayerStatus/PlayerStatus.tscn"
 

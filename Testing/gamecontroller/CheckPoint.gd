@@ -23,7 +23,8 @@ func activate() -> void:
 		"spawn_point_x" : spawn_point.global_position.x,
 		"spawn_point_y" : spawn_point.global_position.y,
 	}
-	#GameController.save_checkpoint(data)
+	var gamecontroller = get_node("/root/GameController")
+	gamecontroller.save_checkpoint(data)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Interact"):

@@ -40,12 +40,10 @@ func create_player_status () -> void:
 		add_child(player_status_node)
 
 func start_game () -> void:
-	create_player_status()
 	call_deferred("_load_scene", first_level)
+	state = GameState.PLAYING
 
 func load_main_menu () -> void:
-	if player_status_node != null:
-		player_status_node.queue_free()
 	load_level(main_menu_scene)
 	resume_paused ()
 	state = GameState.MAINMENU
@@ -53,14 +51,13 @@ func load_main_menu () -> void:
 func load_level (scenepath) -> void:
 	call_deferred("_load_scene", scenepath)
 
-#Change for Background Loading???
 func _load_scene (scenepath) -> void:
 	loading_screen.show()
 	current_scene.queue_free()
 	var s = ResourceLoader.load(scenepath)
 	current_scene = s.instance()
 	get_tree().get_root().add_child(current_scene)
-	get_tree().set_current_scene(current_scene)
+	#get_tree().set_current_scene(current_scene)
 	loading_screen.hide()
 	player_node = current_scene.get_node("Player")
 
@@ -91,7 +88,7 @@ func load_checkpoint () -> void:
 	_load_scene ( level_data["level"] )
 	# Load Player data
 	var player_status_data = parse_json(save_game.get_line())
-	create_player_status ()
+	
 	for i in player_status_data.keys():
 		player_status_node.set(i, player_status_data[i])
 	#Position the player in the checkpoint
@@ -103,15 +100,17 @@ func load_checkpoint () -> void:
 func pause_menu () -> void:
 	pause_menu_screen.show()
 	get_tree().paused = true
+	state = GameState.PAUSEMENU
 
 func resume_paused () -> void:
 	pause_menu_screen.hide()
 	get_tree().paused = false
+	state = GameState.PLAYING
 
 func quit_game () -> void:
-	if player_status_node != null:
-		player_status_node.queue_free()
 	current_scene.queue_free()
+	player_status_node.queue_free()
+	queue_free()
 	get_tree().quit()
 
 func game_over () -> void:
