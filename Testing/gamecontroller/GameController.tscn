@@ -8,6 +8,9 @@
 [node name="GameController" type="Node"]
 pause_mode = 2
 script = ExtResource( 1 )
+first_level = "res://Testing/Level2.tscn"
+main_menu_scene = "res://Testing/MainMenu.tscn"
+player_status = "res://Testing/PlayerStatus/PlayerStatus.tscn"
 
 [node name="Menu" type="CanvasLayer" parent="."]
 layer = 128

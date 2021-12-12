@@ -3,42 +3,49 @@ extends Node
 #Prototype of GameManager: Change to use the state machine after.
 
 export var first_level := "first_level"
+export var main_menu_scene := ""
 
 var current_scene = null
-var loading_screen = null
-var pause_menu_screen = null
-var game_over_screen = null
+
+export var player_status := ""
+var player_status_node = null
+
+var player_node = null
+
+onready var loading_screen := $Menu/LoadingScreen
+onready var pause_menu_screen := $Menu/PauseMenu
+onready var game_over_screen := $Menu/GameOverScreen
 
 enum GameState {MAINMENU, PAUSEMENU, PLAYING, EXITING, GAMEOVER, LOADING}
 var state = GameState.PLAYING
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if OS.has_feature("standalone"):
-		print("Running an exported build.")
-	else:
-		print("Running from the editor.")
 	state = GameState.PLAYING
-	
-	#These nodes might have to be deleted and manage the UI differently
-	loading_screen = get_node("/root/GameController/Menu/LoadingScreen") as Control
-	pause_menu_screen = get_node("/root/GameController/Menu/PauseMenu") as Control
-	game_over_screen = get_node("/root/GameController/Menu/GameOverScreen") as Control
-	
-	print(loading_screen)
+	create_player_status ()
 	if loading_screen != null:
 		loading_screen.hide()
 	if pause_menu_screen != null:
 		pause_menu_screen.hide()
 	if game_over_screen != null:
 		game_over_screen.hide()
+	
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
 
+func create_player_status () -> void:
+	if player_status_node == null:
+		var status = ResourceLoader.load(player_status)
+		player_status_node = status.instance()
+		add_child(player_status_node)
+
 func start_game () -> void:
-	state = GameState.PLAYING
-	#Set default PlayerStatus
-	call_deferred("_loadScene", first_level)
+	state = GameState.MAINMENU
+	create_player_status()
+	call_deferred("_load_scene", first_level)
+
+func load_main_menu () -> void:
+	load_level(main_menu_scene)
 
 func load_level (scenepath) -> void:
 	state = GameState.LOADING
@@ -46,75 +53,51 @@ func load_level (scenepath) -> void:
 
 #Change for Background Loading???
 func _load_scene (scenepath) -> void:
-	get_tree().paused = true
 	loading_screen.show()
 	current_scene.queue_free()
 	var s = ResourceLoader.load(scenepath)
 	current_scene = s.instance()
 	get_tree().get_root().add_child(current_scene)
 	get_tree().set_current_scene(current_scene)
-	
-	#Yield it is only to check the loading screen
-	yield(get_tree().create_timer(2.0), "timeout") #This is to be deleted
-	
 	loading_screen.hide()
 	state = GameState.PLAYING
-	get_tree().paused = false
+	#player_node = get_tree().get_root().find_node("Player")
+	player_node = current_scene.get_node("Player")
 
-func save_checkpoint () -> void:
+func save_checkpoint (spawn_point_data) -> void:
 	var save_game = File.new()
 	save_game.open("user://savegame.save", File.WRITE)
-	var save_nodes = get_tree().get_nodes_in_group("Persist")
-	for node in save_nodes:
-		# Check the node is an instanced scene so it can be instanced again during load.
-		if node.filename.empty():
-			print("persistent node '%s' is not an instanced scene, skipped" % node.name)
-			continue
-
-		# Check the node has a save function.
-		if !node.has_method("save"):
-			print("persistent node '%s' is missing a save() function, skipped" % node.name)
-			continue
-
-		# Call the node's save function.
-		var node_data = node.call("save")
-
-		# Store the save dictionary as a new line in the save file.
-		save_game.store_line(to_json(node_data))
+	
+	#save level to reload
+	var level_data = {"level" : current_scene.get_filename()}
+	save_game.store_line(to_json(level_data))
+	
+	#save player status
+	var player_status_data = player_status_node.save()
+	save_game.store_line(to_json(player_status_data))
+	
+	#save checkpoint spawn position
+	save_game.store_line(to_json(spawn_point_data))
+	
 	save_game.close()
 
 func load_checkpoint () -> void:
 	var save_game = File.new()
 	if not save_game.file_exists("user://savegame.save"):
 		return # Error! We don't have a save to load.
-
-	# We need to revert the game state so we're not cloning objects
-	# during loading. This will vary wildly depending on the needs of a
-	# project, so take care with this step.
-	# For our example, we will accomplish this by deleting saveable objects.
-	var save_nodes = get_tree().get_nodes_in_group("Persist")
-	for i in save_nodes:
-		i.queue_free()
-
-	# Load the file line by line and process that dictionary to restore
-	# the object it represents.
 	save_game.open("user://savegame.save", File.READ)
-	while save_game.get_position() < save_game.get_len():
-		# Get the saved dictionary from the next line in the save file
-		var node_data = parse_json(save_game.get_line())
-
-		# Firstly, we need to create the object and add it to the tree and set its position.
-		var new_object = load(node_data["filename"]).instance()
-		get_node(node_data["parent"]).add_child(new_object)
-		new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
-
-		# Now we set the remaining variables.
-		for i in node_data.keys():
-			if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
-				continue
-			new_object.set(i, node_data[i])
+	# Get level file name
+	var level_data = parse_json(save_game.get_line())
+	_load_scene ( level_data["level"] )
+	# Load Player data
+	var player_status_data = parse_json(save_game.get_line())
+	create_player_status ()
+	for i in player_status_data.keys():
+		player_status_node.set(i, player_status_data[i])
+	#Position the player in the checkpoint
+	var spawn_data = parse_json(save_game.get_line())
+	player_node.position = Vector2(spawn_data["spawn_point_x"], spawn_data["spawn_point_y"])
 	save_game.close()
-
 
 func pause_menu () -> void:
 	state = GameState.PAUSEMENU
@@ -136,7 +119,7 @@ func game_over () -> void:
 	get_tree().paused = true
 	game_over_screen.show()
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		if state == GameState.PLAYING:
 			pause_menu ()
