@@ -19,7 +19,7 @@ z_index = -1
 texture = ExtResource( 1 )
 
 [node name="SpawnPoint" type="Node2D" parent="."]
-position = Vector2( 0, 24 )
+position = Vector2( -1, 2 )
 
 [node name="tipUI" type="Control" parent="."]
 visible = false

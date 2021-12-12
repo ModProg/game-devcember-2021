@@ -67,6 +67,7 @@ func save_checkpoint (spawn_point_data) -> void:
 	
 	#save level to reload
 	var level_data = {"level" : current_scene.get_filename()}
+	print(level_data)
 	save_game.store_line(to_json(level_data))
 	
 	#save player status
