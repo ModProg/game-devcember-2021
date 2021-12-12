@@ -1,15 +1,16 @@
 extends Node
 
-#Prototype of GameManager: Change to use the state machine after.
-
 export var first_level := "first_level"
 export var main_menu_scene := ""
 
+#current scene being played. E.g.: First level
 var current_scene = null
 
+#Player status scene file name
 export var player_status := ""
+#Player status node
 var player_status_node = null
-
+#reference to player node
 var player_node = null
 
 onready var loading_screen := $Menu/LoadingScreen
@@ -21,7 +22,6 @@ var state = GameState.PLAYING
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	state = GameState.PLAYING
 	create_player_status ()
 	if loading_screen != null:
 		loading_screen.hide()
@@ -40,15 +40,17 @@ func create_player_status () -> void:
 		add_child(player_status_node)
 
 func start_game () -> void:
-	state = GameState.MAINMENU
 	create_player_status()
 	call_deferred("_load_scene", first_level)
 
 func load_main_menu () -> void:
+	if player_status_node != null:
+		player_status_node.queue_free()
 	load_level(main_menu_scene)
+	resume_paused ()
+	state = GameState.MAINMENU
 
 func load_level (scenepath) -> void:
-	state = GameState.LOADING
 	call_deferred("_load_scene", scenepath)
 
 #Change for Background Loading???
@@ -60,8 +62,6 @@ func _load_scene (scenepath) -> void:
 	get_tree().get_root().add_child(current_scene)
 	get_tree().set_current_scene(current_scene)
 	loading_screen.hide()
-	state = GameState.PLAYING
-	#player_node = get_tree().get_root().find_node("Player")
 	player_node = current_scene.get_node("Player")
 
 func save_checkpoint (spawn_point_data) -> void:
@@ -98,25 +98,23 @@ func load_checkpoint () -> void:
 	var spawn_data = parse_json(save_game.get_line())
 	player_node.position = Vector2(spawn_data["spawn_point_x"], spawn_data["spawn_point_y"])
 	save_game.close()
+	resume_paused ()
 
 func pause_menu () -> void:
-	state = GameState.PAUSEMENU
 	pause_menu_screen.show()
 	get_tree().paused = true
 
 func resume_paused () -> void:
-	state = GameState.PLAYING
 	pause_menu_screen.hide()
 	get_tree().paused = false
 
 func quit_game () -> void:
-	get_tree().paused = true
-	state = GameState.EXITING
+	if player_status_node != null:
+		player_status_node.queue_free()
+	current_scene.queue_free()
 	get_tree().quit()
 
 func game_over () -> void:
-	state = GameState.GAMEOVER
-	get_tree().paused = true
 	game_over_screen.show()
 
 func _process(_delta):
