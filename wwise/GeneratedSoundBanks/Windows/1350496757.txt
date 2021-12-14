@@ -1,0 +1,26 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2385628198	Footsteps			\Default Work Unit\Player\Footsteps	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	1725899499	Player_Footstep_Surface			\Default Work Unit\Player\Player_Footstep_Surface	
+
+Switch	ID	Name	Switch Group			Notes
+	2058049674	Wood	Player_Footstep_Surface			
+	2185786256	Gravel	Player_Footstep_Surface			
+	2195636714	Dirt	Player_Footstep_Surface			
+	2473969246	Metal	Player_Footstep_Surface			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	92014107	Footstep_Walking_Hardmetal_02	C:\Users\domha\OneDrive\Desktop\Devcember wwise Project\.cache\Windows\SFX\MetalSheet\Footstep_Walking_Hardmetal_02_636989F9.wem		\Actor-Mixer Hierarchy\SFX\Player Footsteps\Footstep Material\Metal\Footstep_Walking_Hardmetal_02		2013
+	214209674	AK_FS_Run_Gravel_01	C:\Users\domha\OneDrive\Desktop\Devcember wwise Project\.cache\Windows\SFX\Gravel\AK_FS_Run_Gravel_01_636989F9.wem		\Actor-Mixer Hierarchy\SFX\Player Footsteps\Footstep Material\Gravel\AK_FS_Run_Gravel_01		2280
+	283797803	Footstep_Walking_Hardmetal_03	C:\Users\domha\OneDrive\Desktop\Devcember wwise Project\.cache\Windows\SFX\MetalSheet\Footstep_Walking_Hardmetal_03_636989F9.wem		\Actor-Mixer Hierarchy\SFX\Player Footsteps\Footstep Material\Metal\Footstep_Walking_Hardmetal_03		2777
+	295271581	Footstep_Walking_Hardwood_01	C:\Users\domha\OneDrive\Desktop\Devcember wwise Project\.cache\Windows\SFX\WoodSolid\Footstep_Walking_Hardwood_01_636989F9.wem		\Actor-Mixer Hierarchy\SFX\Player Footsteps\Footstep Material\Wood\Footstep_Walking_Hardwood_01		1816
+	425219604	FS_Dirt_02	C:\Users\domha\OneDrive\Desktop\Devcember wwise Project\.cache\Windows\SFX\Dirt\FS_Dirt_02_636989F9.wem		\Actor-Mixer Hierarchy\SFX\Player Footsteps\Footstep Material\Dirt\FS_Dirt_02		3485
+	471753115	FS_Dirt_01	C:\Users\domha\OneDrive\Desktop\Devcember wwise Project\.cache\Windows\SFX\Dirt\FS_Dirt_01_636989F9.wem		\Actor-Mixer Hierarchy\SFX\Player Footsteps\Footstep Material\Dirt\FS_Dirt_01		3113
+	673411772	Footstep_Walking_Hardmetal_01	C:\Users\domha\OneDrive\Desktop\Devcember wwise Project\.cache\Windows\SFX\MetalSheet\Footstep_Walking_Hardmetal_01_636989F9.wem		\Actor-Mixer Hierarchy\SFX\Player Footsteps\Footstep Material\Metal\Footstep_Walking_Hardmetal_01		2454
+	744855479	Footstep_Walking_Hardwood_03	C:\Users\domha\OneDrive\Desktop\Devcember wwise Project\.cache\Windows\SFX\WoodSolid\Footstep_Walking_Hardwood_03_636989F9.wem		\Actor-Mixer Hierarchy\SFX\Player Footsteps\Footstep Material\Wood\Footstep_Walking_Hardwood_03		1973
+	780271070	FS_Dirt_03	C:\Users\domha\OneDrive\Desktop\Devcember wwise Project\.cache\Windows\SFX\Dirt\FS_Dirt_03_636989F9.wem		\Actor-Mixer Hierarchy\SFX\Player Footsteps\Footstep Material\Dirt\FS_Dirt_03		3687
+	815108330	AK_FS_Run_Gravel_02	C:\Users\domha\OneDrive\Desktop\Devcember wwise Project\.cache\Windows\SFX\Gravel\AK_FS_Run_Gravel_02_636989F9.wem		\Actor-Mixer Hierarchy\SFX\Player Footsteps\Footstep Material\Gravel\AK_FS_Run_Gravel_02		2837
+	829331299	Footstep_Walking_Hardwood_02	C:\Users\domha\OneDrive\Desktop\Devcember wwise Project\.cache\Windows\SFX\WoodSolid\Footstep_Walking_Hardwood_02_636989F9.wem		\Actor-Mixer Hierarchy\SFX\Player Footsteps\Footstep Material\Wood\Footstep_Walking_Hardwood_02		1942
+	959439125	AK_FS_Run_Gravel_03	C:\Users\domha\OneDrive\Desktop\Devcember wwise Project\.cache\Windows\SFX\Gravel\AK_FS_Run_Gravel_03_636989F9.wem		\Actor-Mixer Hierarchy\SFX\Player Footsteps\Footstep Material\Gravel\AK_FS_Run_Gravel_03		2519
+
