@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource path="res://addons/waapi_picker/waapi_picker_drag.gd" type="Script" id=2]
+[ext_resource path="res://addons/waapi_picker/waapi_picker_drag.gd" type="Script" id="2"]
 
 [node name="WwisePickerControl" type="Control"]
 margin_right = 959.277
@@ -21,7 +21,7 @@ __meta__ = {
 
 [node name="TopVBoxContainer" type="VBoxContainer" parent="ParentVBoxContainer"]
 margin_right = 1015.0
-margin_bottom = 54.0
+margin_bottom = 48.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -59,18 +59,18 @@ margin_bottom = 17.0
 [node name="SearchText" type="LineEdit" parent="ParentVBoxContainer/TopVBoxContainer"]
 margin_top = 24.0
 margin_right = 1015.0
-margin_bottom = 54.0
+margin_bottom = 48.0
 placeholder_text = "Search Wwise project..."
 
 [node name="ProjectObjectsTree" type="Tree" parent="ParentVBoxContainer"]
-margin_top = 58.0
+margin_top = 52.0
 margin_right = 1015.0
 margin_bottom = 277.0
 rect_min_size = Vector2( 0, 120 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 allow_reselect = true
-script = ExtResource( 2 )
+script = ExtResource( "2" )
 __meta__ = {
 "_edit_use_anchors_": false
 }

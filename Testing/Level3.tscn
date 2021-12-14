@@ -1,9 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource path="res://Testing/Debugger.gd" type="Script" id=1]
-[ext_resource path="res://Testing/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Testing/Debugger.gd" type="Script" id="1"]
+[ext_resource path="res://Testing/Player/Player.tscn" type="PackedScene" id="2"]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id="1"]
 extents = Vector2( 159.5, 79.5 )
 
 [node name="Node2D" type="Node2D"]
@@ -14,7 +14,7 @@ scale = Vector2( 3.28496, 1.06183 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2( 159.5, 79.5 )
-shape = SubResource( 1 )
+shape = SubResource( "1" )
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
 margin_right = 319.0
@@ -29,7 +29,7 @@ scale = Vector2( 1.6053, 2.20429 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 position = Vector2( 159.5, 79.5 )
-shape = SubResource( 1 )
+shape = SubResource( "1" )
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D3"]
 margin_right = 319.0
@@ -44,7 +44,7 @@ scale = Vector2( 0.33364, 0.108241 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
 position = Vector2( 159.5, 79.5 )
-shape = SubResource( 1 )
+shape = SubResource( "1" )
 one_way_collision = true
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D4"]
@@ -60,7 +60,7 @@ scale = Vector2( 0.33364, 0.108241 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
 position = Vector2( 159.5, 79.5 )
-shape = SubResource( 1 )
+shape = SubResource( "1" )
 one_way_collision = true
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D5"]
@@ -76,7 +76,7 @@ scale = Vector2( 0.33364, 0.108241 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
 position = Vector2( 159.5, 79.5 )
-shape = SubResource( 1 )
+shape = SubResource( "1" )
 one_way_collision = true
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D6"]
@@ -92,7 +92,7 @@ scale = Vector2( 0.33364, 0.108241 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
 position = Vector2( 159.5, 79.5 )
-shape = SubResource( 1 )
+shape = SubResource( "1" )
 one_way_collision = true
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D7"]
@@ -108,7 +108,7 @@ scale = Vector2( 0.33364, 0.108241 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
 position = Vector2( 159.5, 79.5 )
-shape = SubResource( 1 )
+shape = SubResource( "1" )
 one_way_collision = true
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D8"]
@@ -118,11 +118,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
+[node name="Player" parent="." instance=ExtResource( "2" )]
 position = Vector2( 160, 375 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 
 [node name="Debugger" type="Node" parent="."]
-script = ExtResource( 1 )
+script = ExtResource( "1" )
