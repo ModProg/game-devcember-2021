@@ -4,7 +4,7 @@ export var first_level := "first_level"
 export var main_menu_scene := ""
 
 #current scene being played. E.g.: First level
-var current_scene = null
+var current_scene: Node = null
 
 #Player status scene file name
 export var player_status := ""
@@ -16,10 +16,12 @@ var player_node = null
 onready var loading_screen := $Menu/LoadingScreen
 onready var pause_menu_screen := $Menu/PauseMenu
 onready var game_over_screen := $Menu/GameOverScreen
+onready var darken_screen := $DarkenScreen/ColorRect
 
 enum GameState {MAINMENU, PAUSEMENU, PLAYING, EXITING, GAMEOVER, LOADING}
 var state = GameState.PLAYING
 
+var dialogue = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	create_player_status ()
@@ -29,6 +31,8 @@ func _ready():
 		pause_menu_screen.hide()
 	if game_over_screen != null:
 		game_over_screen.hide()
+	if darken_screen != null:
+		darken_screen.hide()
 	
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
@@ -105,8 +109,28 @@ func pause_menu () -> void:
 
 func resume_paused () -> void:
 	pause_menu_screen.hide()
-	get_tree().paused = false
+	if !dialogue:
+		get_tree().paused = false
 	state = GameState.PLAYING
+
+func show_dialog(name: String) -> void:
+	darken_screen.show()
+	get_tree().paused = true
+	# Maybe use substates because you can pausemenue during dialogue idk
+	# state = DIALOGUE
+	dialogue = Dialogic.start(name)
+	dialogue.connect("timeline_end", self, "end_dialog")
+	add_child(dialogue)
+	
+func end_dialog(_timeline) -> void:
+	darken_screen.hide()
+	get_tree().paused = false
+	# Maybe use substates because you can pausemenue during dialogue idk
+	# state = DIALOGUE
+	if dialogue:
+		dialogue.queue_free()
+		dialogue = null
+
 
 func quit_game () -> void:
 	current_scene.queue_free()
