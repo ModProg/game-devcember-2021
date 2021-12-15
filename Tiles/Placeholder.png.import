@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Placeholder.png-c9cb76e0417ce0d8ae296430bcb05243.stex"
+path="res://.import/Placeholder.png-33ef2ed5570c3d1dec8c41f7fd1deb05.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Testing/Tiles/Placeholder.png"
-dest_files=[ "res://.import/Placeholder.png-c9cb76e0417ce0d8ae296430bcb05243.stex" ]
+source_file="res://Tiles/Placeholder.png"
+dest_files=[ "res://.import/Placeholder.png-33ef2ed5570c3d1dec8c41f7fd1deb05.stex" ]
 
 [params]
 

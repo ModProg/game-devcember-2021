@@ -49,6 +49,7 @@ func start_game () -> void:
 
 func load_main_menu () -> void:
 	load_level(main_menu_scene)
+	end_dialog("")
 	resume_paused ()
 	state = GameState.MAINMENU
 

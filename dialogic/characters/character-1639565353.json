@@ -13,7 +13,7 @@
 	"portraits": [
 		{
 			"name": "Default",
-			"path": "res://Testing/Dialogue/apprentice_profile.png"
+			"path": "res://Dialogue/apprentice_profile.png"
 		}
 	],
 	"scale": 15
