@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3]
 
-[ext_resource path="res://Testing/Dialogue/DialogueTrigger.gd" type="Script" id="1_qb4qt"]
+[ext_resource path="res://Dialogue/DialogueTrigger.gd" type="Script" id="1_qb4qt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4qmqk"]
 extents = Vector2( 65, 32 )

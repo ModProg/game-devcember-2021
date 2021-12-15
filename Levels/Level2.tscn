@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3]
 
-[ext_resource path="res://Testing/Debugger.gd" type="Script" id="1"]
-[ext_resource path="res://Testing/Player/Player.tscn" type="PackedScene" id="2"]
-[ext_resource path="res://Testing/gamecontroller/CheckPoint.tscn" type="PackedScene" id="3"]
-[ext_resource path="res://Testing/gamecontroller/Transition.tscn" type="PackedScene" id="4"]
+[ext_resource path="res://Debugger.gd" type="Script" id="1"]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id="2"]
+[ext_resource path="res://Game Controller/CheckPoint.tscn" type="PackedScene" id="3"]
+[ext_resource path="res://Game Controller/Transition.tscn" type="PackedScene" id="4"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 extents = Vector2( 159.5, 79.5 )
@@ -165,4 +165,4 @@ position = Vector2( 566, 348 )
 [node name="Transition" parent="." instance=ExtResource( "4" )]
 position = Vector2( 1299, 396 )
 scale = Vector2( 1, 3.72 )
-to_level = "res://Testing/Level3.tscn"
+to_level = "res://Levels/Level3.tscn"

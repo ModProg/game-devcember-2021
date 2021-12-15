@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/slime.png-a9ff7b5bd2c0e6536800033104839b4b.stex"
+path="res://.import/apprentice_profile.png-96bc9280b0b9cbc5ab0c5082dd43a68e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Testing/Player/assets/slime.png"
-dest_files=[ "res://.import/slime.png-a9ff7b5bd2c0e6536800033104839b4b.stex" ]
+source_file="res://Dialogue/apprentice_profile.png"
+dest_files=[ "res://.import/apprentice_profile.png-96bc9280b0b9cbc5ab0c5082dd43a68e.stex" ]
 
 [params]
 
