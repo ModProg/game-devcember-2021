@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource path="res://Game Controller/GameController.gd" type="Script" id="1"]
+[ext_resource path="res://Game Controller/LoadingScreen.tscn" type="PackedScene" id="2"]
+[ext_resource path="res://Game Controller/PauseMenu.tscn" type="PackedScene" id="3"]
+[ext_resource path="res://Game Controller/GameOverScreen.tscn" type="PackedScene" id="4"]
+
+[node name="GameController" type="Node"]
+pause_mode = 2
+script = ExtResource( "1" )
+first_level = "res://Levels/Level.tscn"
+main_menu_scene = "res://Main Menu/MainMenu.tscn"
+player_status = "res://Player Status/PlayerStatus.tscn"
+
+[node name="DarkenScreen" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="DarkenScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.509804 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="PauseMenu" parent="Menu" instance=ExtResource( "3" )]
+visible = false
+
+[node name="GameOverScreen" parent="Menu" instance=ExtResource( "4" )]
+visible = false
+
+[node name="LoadingScreen" parent="Menu" instance=ExtResource( "2" )]
+visible = false

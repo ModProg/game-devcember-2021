@@ -1,0 +1,168 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource path="res://Debugger.gd" type="Script" id="1"]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id="2"]
+[ext_resource path="res://Game Controller/CheckPoint.tscn" type="PackedScene" id="3"]
+[ext_resource path="res://Game Controller/Transition.tscn" type="PackedScene" id="4"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+extents = Vector2( 159.5, 79.5 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( -5, 438 )
+scale = Vector2( 3.28496, 1.06183 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "1" )
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="."]
+position = Vector2( 1043, 438 )
+scale = Vector2( 3.28496, 1.06183 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "1" )
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D9"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="."]
+position = Vector2( 1285, -251 )
+scale = Vector2( 0.63, 3.62 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D10"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "1" )
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D10"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2( 312, 381 )
+scale = Vector2( 1.6053, 2.20429 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "1" )
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D3"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2( 318, 295 )
+scale = Vector2( 0.33364, 0.108241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "1" )
+one_way_collision = true
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D4"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2( 166, 222 )
+scale = Vector2( 0.33364, 0.108241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "1" )
+one_way_collision = true
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D5"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2( 32, 146 )
+scale = Vector2( 0.33364, 0.108241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "1" )
+one_way_collision = true
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D6"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+position = Vector2( 161, 49 )
+scale = Vector2( 0.33364, 0.108241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "1" )
+one_way_collision = true
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D7"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+position = Vector2( 439, 176 )
+scale = Vector2( 0.33364, 0.108241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "1" )
+one_way_collision = true
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D8"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="." instance=ExtResource( "2" )]
+position = Vector2( 160, 375 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+
+[node name="Debugger" type="Node" parent="."]
+script = ExtResource( "1" )
+
+[node name="CheckPoint" parent="." instance=ExtResource( "3" )]
+position = Vector2( 566, 348 )
+
+[node name="Transition" parent="." instance=ExtResource( "4" )]
+position = Vector2( 1299, 396 )
+scale = Vector2( 1, 3.72 )
+to_level = "res://Levels/Level3.tscn"

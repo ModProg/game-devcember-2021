@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource path="res://Main Menu/MainMenu.gd" type="Script" id="1"]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( "1" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 459.0
+margin_top = 257.0
+margin_right = 565.0
+margin_bottom = 343.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 106.0
+margin_bottom = 14.0
+text = "Main Menu"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResumeButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 106.0
+margin_bottom = 38.0
+text = "Resume Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGameButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 42.0
+margin_right = 106.0
+margin_bottom = 62.0
+text = "New Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitGameButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 66.0
+margin_right = 106.0
+margin_bottom = 86.0
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitGameButton" to="." method="_on_QuitGameButton_pressed"]

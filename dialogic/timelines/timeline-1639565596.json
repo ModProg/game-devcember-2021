@@ -1,0 +1,67 @@
+{
+	"events": [
+		{
+			"action": "join",
+			"character": "character-1639565353.json",
+			"event_id": "dialogic_002",
+			"mirror": false,
+			"portrait": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			}
+		},
+		{
+			"character": "character-1639565353.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Master? ... What just happened, have we won?"
+		},
+		{
+			"character": "character-1639565353.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Everything happened so fast, there was just so much light and then you were gone. Where are you?!"
+		},
+		{
+			"action": "join",
+			"character": "character-1639565131.json",
+			"event_id": "dialogic_002",
+			"mirror": true,
+			"portrait": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			}
+		},
+		{
+			"character": "character-1639565131.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Here."
+		},
+		{
+			"character": "character-1639565131.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I did not make it apparently. But atleast we have won... for now, in this realm."
+		},
+		{
+			"character": "character-1639565131.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "But don't worry, I'm not going to leave you here alone... well I couldn't even if I wanted to."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.3",
+		"file": "timeline-1639565596.json",
+		"name": "Intro"
+	}
+}

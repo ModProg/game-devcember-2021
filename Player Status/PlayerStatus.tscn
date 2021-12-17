@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource path="res://Player Status/PlayerStatus.gd" type="Script" id="1"]
+
+[node name="PlayerStatus" type="Node2D" groups=["Persist"]]
+script = ExtResource( "1" )
