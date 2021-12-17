@@ -7,7 +7,7 @@
 [ext_resource path="res://Testing/Camera/CameraAttractor.gd" type="Script" id="5"]
 [ext_resource path="res://Testing/gamecontroller/CheckPoint.tscn" type="PackedScene" id="6"]
 [ext_resource path="res://Testing/gamecontroller/Transition.tscn" type="PackedScene" id="7"]
-[ext_resource path="res://Testing/Enemies/BlindSkeleton/Enemy.tscn" type="PackedScene" id="8_yh6cj"]
+[ext_resource path="res://Enemies/BlindSkeleton/Enemy.tscn" type="PackedScene" id="8_yh6cj"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 extents = Vector2( 159.5, 79.5 )
@@ -221,7 +221,6 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( "1" )]
 position = Vector2( 160, 375 )
-collision_layer = 2
 
 [node name="Debugger" type="Node" parent="."]
 script = ExtResource( "2" )

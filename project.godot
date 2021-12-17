@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "BlindSkeleton",
 "language": "GDScript",
-"path": "res://Testing/Enemies/BlindSkeleton/BlindSkeleton.gd"
+"path": "res://Enemies/BlindSkeleton/BlindSkeleton.gd"
 }, {
 "base": "Node2D",
 "class": "CameraAttractor",

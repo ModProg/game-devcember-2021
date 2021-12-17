@@ -1,14 +1,15 @@
 [gd_scene load_steps=17 format=3]
 
-[ext_resource path="res://Testing/Enemies/BlindSkeleton/BlindSkeleton.gd" type="Script" id="1_3pq2i"]
+[ext_resource path="res://Enemies/BlindSkeleton/BlindSkeleton.gd" type="Script" id="1_3pq2i"]
 [ext_resource path="res://icon.png" type="Texture" id="2_rag5y"]
 [ext_resource path="res://addons/xsm/state_root.gd" type="Script" id="3_bfmp4"]
-[ext_resource path="res://Testing/Enemies/BlindSkeleton/BlindSkeletonMovementRegion.gd" type="Script" id="4_bqmfy"]
-[ext_resource path="res://Testing/Enemies/BlindSkeleton/BlindSkeletonWalkState.gd" type="Script" id="5_xdy4q"]
-[ext_resource path="res://Testing/Enemies/BlindSkeleton/BlindSkeletonIdleState.gd" type="Script" id="6_uvxg3"]
-[ext_resource path="res://Testing/Enemies/BlindSkeleton/BlindSkeletonStunnedState.gd" type="Script" id="7_16nb7"]
-[ext_resource path="res://Testing/Enemies/BlindSkeleton/BlindSkeletonAttackState.gd" type="Script" id="8_lfs1u"]
-[ext_resource path="res://Testing/Enemies/BlindSkeleton/BlindSkeletonDeadState.gd" type="Script" id="9_b5w74"]
+[ext_resource path="res://Enemies/BlindSkeleton/BlindSkeletonMovementRegion.gd" type="Script" id="4_bqmfy"]
+[ext_resource path="res://Enemies/BlindSkeleton/BlindSkeletonWalkState.gd" type="Script" id="5_xdy4q"]
+[ext_resource path="res://Enemies/BlindSkeleton/BlindSkeletonIdleState.gd" type="Script" id="6_uvxg3"]
+[ext_resource path="res://Enemies/BlindSkeleton/BlindSkeletonStunnedState.gd" type="Script" id="7_16nb7"]
+[ext_resource path="res://Enemies/BlindSkeleton/BlindSkeletonAttackState.gd" type="Script" id="8_lfs1u"]
+[ext_resource path="res://Enemies/BlindSkeleton/BlindSkeletonDeadState.gd" type="Script" id="9_b5w74"]
+
 
 [sub_resource type="CapsuleShape2D" id="1"]
 
