@@ -1,9 +1,8 @@
 [gd_scene load_steps=5 format=3]
 
 [ext_resource path="res://Enemies/BlindSkeleton/Enemy.tscn" type="PackedScene" id="1_ci6in"]
-[ext_resource path="res://Testing/Player/Player.tscn" type="PackedScene" id="2_14bgq"]
-[ext_resource path="res://Testing/gamecontroller/CheckPoint.tscn" type="PackedScene" id="3_ochx8"]
-
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id="2_14bgq"]
+[ext_resource path="res://Game Controller/CheckPoint.tscn" type="PackedScene" id="3_ochx8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmefu"]
 extents = Vector2( 159.5, 79.5 )
