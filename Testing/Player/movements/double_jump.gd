@@ -8,4 +8,4 @@ func _on_enter(_args) -> void:
 
 
 func _after_enter(_args) -> void:
-	change_state("Jump")
+	var _s = change_state("Jump")

@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource path="res://Testing/Enemies/BlindSkeleton/Enemy.tscn" type="PackedScene" id="1_ci6in"]
+[ext_resource path="res://Testing/Player/Player.tscn" type="PackedScene" id="2_14bgq"]
+[ext_resource path="res://Testing/gamecontroller/CheckPoint.tscn" type="PackedScene" id="3_ochx8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmefu"]
+extents = Vector2( 159.5, 79.5 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+position = Vector2( 0, 279 )
+scale = Vector2( 1.49364, 0.108241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "RectangleShape2D_nmefu" )
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D8"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="."]
+position = Vector2( 583, 279 )
+scale = Vector2( 1.49364, 0.108241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "RectangleShape2D_nmefu" )
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D9"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="."]
+position = Vector2( 306, 411 )
+scale = Vector2( 1.49364, 0.108241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D11"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "RectangleShape2D_nmefu" )
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D11"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="."]
+position = Vector2( 0, 159 )
+scale = Vector2( 0.173639, 0.788241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D10"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "RectangleShape2D_nmefu" )
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D10"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D12" type="StaticBody2D" parent="."]
+position = Vector2( 412, 296 )
+scale = Vector2( 0.173639, 0.788241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D12"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "RectangleShape2D_nmefu" )
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D12"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D13" type="StaticBody2D" parent="."]
+position = Vector2( 599, 296 )
+scale = Vector2( 0.173639, 0.788241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D13"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "RectangleShape2D_nmefu" )
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D13"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D14" type="StaticBody2D" parent="."]
+position = Vector2( 1004, 159 )
+scale = Vector2( 0.173639, 0.788241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D14"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "RectangleShape2D_nmefu" )
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D14"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enemy" parent="." instance=ExtResource( "1_ci6in" )]
+position = Vector2( 98, 233 )
+
+[node name="Player" parent="." instance=ExtResource( "2_14bgq" )]
+position = Vector2( 642, 228 )
+
+[node name="CheckPoint" parent="." instance=ExtResource( "3_ochx8" )]
+position = Vector2( 729, 244 )
