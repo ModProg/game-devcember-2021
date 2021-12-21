@@ -31,18 +31,18 @@ script = ExtResource( "2_dwsjl" )
 debug = false
 
 [node name="CameraAttractor" type="Node2D" parent="."]
-position = Vector2( 819, 243 )
+position = Vector2( 422, 172 )
 script = ExtResource( "5_fb75c" )
 outer_radius = 647.059
-inner_radius = 176.471
-debug = true
+inner_radius = 352.942
+zoom = 1.235
 
 [node name="CameraAttractor2" type="Node2D" parent="."]
-position = Vector2( 1639, 103 )
+position = Vector2( 2033, 330 )
 script = ExtResource( "5_fb75c" )
-outer_radius = 529.412
+outer_radius = 764.706
 inner_radius = 323.53
-debug = true
+zoom = 1.529
 
 [node name="Transition" parent="." instance=ExtResource( "6_rjnrs" )]
 position = Vector2( 2058, 351 )
