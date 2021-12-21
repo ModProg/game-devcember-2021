@@ -5,6 +5,7 @@ export (NodePath) var target
 export (bool) var debug = false
 export (Vector2) var velocity_sensitivity = Vector2(30, 10)
 export (float) var acceleration = 1
+export (float) var dash_acceleration = 2
 
 var target_vel := Vector2(0, 0)
 var is_snapped_to_attractor := false
@@ -70,7 +71,12 @@ func _physics_process(delta: float) -> void:
 	if target_vel.length_squared() > 0.2:
 		var inv_attractor_factor = 1 - closest_attractor_factor
 		desired_camera_pos = desired_camera_pos + (target_vel * velocity_sensitivity * inv_attractor_factor)
-	global_position = lerp(global_position, desired_camera_pos, acceleration * delta)
+	var accel
+	if target_node.dashing:
+		accel = dash_acceleration
+	else:
+		accel = acceleration
+	global_position = lerp(global_position, desired_camera_pos, accel * delta)
 	last_target_pos = current_target_pos
 	zoom = Vector2(attracted_zoom, attracted_zoom)
 	if debug:

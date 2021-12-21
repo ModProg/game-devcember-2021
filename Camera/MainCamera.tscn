@@ -9,7 +9,6 @@ position = Vector2( 160, 375 )
 current = true
 script = ExtResource( "1" )
 target = NodePath("../Player")
-debug = true
 acceleration = 4.0
 
 [node name="CameraTrigger" type="Area2D" parent="."]

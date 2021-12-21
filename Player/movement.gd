@@ -8,7 +8,8 @@ func _on_update(delta):
 	target.movement = x_input
 	
 	if abs(x_input) > 0:
-		target.get_node("Sprite").flip_h = x_input < 0
+		target.dir = sign(x_input)
+		target.get_node("Sprite").flip_h = target.dir < 0
 
 	target.velocity.y += delta * target.gravity
 	

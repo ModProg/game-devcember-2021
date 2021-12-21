@@ -7,7 +7,10 @@ class_name Player
 
 var velocity = Vector2()
 var movement = 0
+var dir = 1
 var double_jumped = false
+var dashed = false
+var dashing = false
 
 export (int) var gravity = 2000
 export (int) var acceleration = 15
@@ -25,3 +28,6 @@ export (int) var air_friction = 8
 export (float) var coyote_time = 0.2
 export (float) var prejump_time = 0.3
 export (float) var jump_time = 0.2
+
+export (float) var dash_duration = 0.2
+export (float) var dash_velocity = 2000
