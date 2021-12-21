@@ -10,7 +10,7 @@
 [ext_resource path="res://Player/assets/slime.png" type="Texture" id="8"]
 [ext_resource path="res://Player/movements/land.gd" type="Script" id="11"]
 [ext_resource path="res://Player/movement.gd" type="Script" id="13"]
-[ext_resource path="res://Player/Dash.gd" type="Script" id="13_chda0"]
+[ext_resource path="res://Player/movements/Dash.gd" type="Script" id="13_chda0"]
 [ext_resource path="res://Player/movements/walk.gd" type="Script" id="15"]
 [ext_resource path="res://Player/movements/in_air.gd" type="Script" id="16"]
 [ext_resource path="res://Player/player.gd" type="Script" id="17"]
@@ -319,6 +319,8 @@ animation_player = null
 
 [node name="Dash" type="Node" parent="StateRoot/RegionMovement/InAir"]
 script = ExtResource( "13_chda0" )
+fsm_owner = null
+animation_player = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -9 )
