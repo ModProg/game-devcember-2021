@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=12 format=3]
 
 [ext_resource path="res://Tiles/Tileseet.tres" type="TileSet" id="1_pr6a4"]
 [ext_resource path="res://Debugger.gd" type="Script" id="2_dwsjl"]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id="8_8ltco"]
 [ext_resource path="res://Dialogue/DialogueTrigger.tscn" type="PackedScene" id="9_i1gl8"]
 [ext_resource path="res://Dialogue/DialogueOnLoad.gd" type="Script" id="10_d6y2g"]
+[ext_resource path="res://Debug/PeriodicDamage.gd" type="Script" id="11_u5j7m"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -61,3 +62,6 @@ timeline = "Test"
 [node name="DialogueOnLoad" type="Node" parent="."]
 script = ExtResource( "10_d6y2g" )
 timeline = "Intro"
+
+[node name="PeriodicPlayerDamage" type="Node" parent="."]
+script = ExtResource( "11_u5j7m" )
