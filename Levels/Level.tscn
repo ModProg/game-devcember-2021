@@ -28,7 +28,6 @@ script = ExtResource( "2_dwsjl" )
 [node name="Ghost" parent="." instance=ExtResource( "3_57yfv" )]
 
 [node name="MainCamera" parent="." instance=ExtResource( "4_m2h8u" )]
-debug = false
 
 [node name="CameraAttractor" type="Node2D" parent="."]
 position = Vector2( 422, 172 )
@@ -54,7 +53,6 @@ position = Vector2( 374, 263 )
 
 [node name="Player" parent="." instance=ExtResource( "8_8ltco" )]
 position = Vector2( 160, 375 )
-collision_layer = 2
 
 [node name="DialogueTrigger" parent="." instance=ExtResource( "9_i1gl8" )]
 position = Vector2( 449, 347 )
