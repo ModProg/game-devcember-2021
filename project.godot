@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://wwise/runtime/helpers/ak_utils.gd"
 }, {
-"base": "Reference",
+"base": "Node2D",
 "class": "CameraAttractor",
 "language": "GDScript",
 "path": "res://Camera/CameraAttractor.gd"
@@ -54,12 +54,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/dialogic/Other/DialogicUtil.gd"
 }, {
-"base": "Reference",
+"base": "Node",
 "class": "DialogueOnLoad",
 "language": "GDScript",
 "path": "res://Dialogue/DialogueOnLoad.gd"
 }, {
-"base": "Reference",
+"base": "Area2D",
 "class": "DialogueTrigger",
 "language": "GDScript",
 "path": "res://Dialogue/DialogueTrigger.gd"
