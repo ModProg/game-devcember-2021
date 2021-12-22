@@ -1,0 +1,92 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource path="res://HUD/HUD.gd" type="Script" id="1_5u258"]
+[ext_resource path="res://HUD/itemspotiona.png" type="Texture" id="1_wmahe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4l4n"]
+bg_color = Color( 0.827451, 0.0784314, 0.0784314, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06hs4"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.929412, 0.752941, 0.0156863, 1 )
+border_blend = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf1ug"]
+atlas = ExtResource( "1_wmahe" )
+region = Rect2( 106, 10, 13, 19 )
+
+[node name="HUD" type="AspectRatioContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+ratio = 1.6
+script = ExtResource( "1_5u258" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="Control" parent="."]
+margin_left = 32.0
+margin_right = 992.0
+margin_bottom = 600.0
+
+[node name="StatusContainer" type="VBoxContainer" parent="Container"]
+anchor_top = 0.044
+anchor_right = 0.394
+anchor_bottom = 0.202
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthBar" type="ProgressBar" parent="Container/StatusContainer"]
+margin_right = 378.0
+margin_bottom = 18.0
+custom_colors/font_color = Color( 0, 0, 0, 0 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0 )
+custom_styles/fg = SubResource( "StyleBoxFlat_r4l4n" )
+custom_styles/bg = SubResource( "StyleBoxFlat_06hs4" )
+value = 50.0
+rounded = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Container/StatusContainer"]
+margin_top = 34.0
+margin_right = 378.0
+margin_bottom = 71.0
+custom_constants/margin_right = 4
+custom_constants/margin_left = 4
+
+[node name="InventoryContainer" type="HBoxContainer" parent="Container/StatusContainer/MarginContainer"]
+margin_left = 4.0
+margin_right = 374.0
+margin_bottom = 37.0
+custom_constants/separation = 16
+
+[node name="PotionCountContainer" type="VBoxContainer" parent="Container/StatusContainer/MarginContainer/InventoryContainer"]
+margin_right = 29.0
+margin_bottom = 37.0
+alignment = 1
+
+[node name="PotionIcon" type="TextureRect" parent="Container/StatusContainer/MarginContainer/InventoryContainer/PotionCountContainer"]
+margin_right = 29.0
+margin_bottom = 19.0
+texture = SubResource( "AtlasTexture_cf1ug" )
+stretch_mode = 6
+
+[node name="PotionCountLabel" type="Label" parent="Container/StatusContainer/MarginContainer/InventoryContainer/PotionCountContainer"]
+margin_top = 23.0
+margin_right = 29.0
+margin_bottom = 37.0
+text = "0/10"
+align = 1
+valign = 1
