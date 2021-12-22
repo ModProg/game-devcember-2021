@@ -156,7 +156,7 @@ func game_over () -> void:
 	game_over_screen.show()
 
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_pause"):
 		if state == GameState.PLAYING:
 			pause_menu ()
 		elif state == GameState.PAUSEMENU:
