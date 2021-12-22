@@ -4,8 +4,6 @@ extends State
 
 func _on_enter(args) -> void:
 	target.double_jumped = false
-	target.dashed = false
-
 
 func _on_update(delta):
 	if abs(target.movement) > 0:
@@ -13,6 +11,3 @@ func _on_update(delta):
 	else:
 		target.velocity.x = lerp(target.velocity.x,  0, target.air_friction * delta)
 		if abs(target.velocity.x) < target.walk_margin: target.velocity.x = 0
-		
-	if Input.is_action_just_pressed("dash") and not target.dashed:
-		change_state("Dash")
