@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource path="res://Enemies/BlindSkeleton/Enemy.tscn" type="PackedScene" id="1_ci6in"]
+[ext_resource path="res://Camera/MainCamera.tscn" type="PackedScene" id="1_qta0j"]
+[ext_resource path="res://Enemies/Slime/SlimeEnemy.tscn" type="PackedScene" id="2_2w1s2"]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id="2_14bgq"]
 [ext_resource path="res://Game Controller/CheckPoint.tscn" type="PackedScene" id="3_ochx8"]
 
@@ -99,26 +101,79 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StaticBody2D14" type="StaticBody2D" parent="."]
-position = Vector2( 1004, 159 )
-scale = Vector2( 0.173639, 0.788241 )
+[node name="StaticBody2D15" type="StaticBody2D" parent="."]
+position = Vector2( 1117, 450 )
+scale = Vector2( 1.57364, 0.108241 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D14"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D15"]
 position = Vector2( 159.5, 79.5 )
 shape = SubResource( "RectangleShape2D_nmefu" )
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D14"]
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D15"]
 margin_right = 319.0
 margin_bottom = 159.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="StaticBody2D18" type="StaticBody2D" parent="."]
+position = Vector2( 1712, 449 )
+scale = Vector2( 1.57364, 0.108241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D18"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "RectangleShape2D_nmefu" )
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D18"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D16" type="StaticBody2D" parent="."]
+position = Vector2( 2159, 324 )
+scale = Vector2( 0.173639, 0.788241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D16"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "RectangleShape2D_nmefu" )
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D16"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StaticBody2D17" type="StaticBody2D" parent="."]
+position = Vector2( 1118, 324 )
+scale = Vector2( 0.173639, 0.788241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D17"]
+position = Vector2( 159.5, 79.5 )
+shape = SubResource( "RectangleShape2D_nmefu" )
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D17"]
+margin_right = 319.0
+margin_bottom = 159.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainCamera" parent="." instance=ExtResource( "1_qta0j" )]
+debug = false
+
+[node name="SlimeEnemy" parent="." instance=ExtResource( "2_2w1s2" )]
+position = Vector2( 1371, 112 )
+
 [node name="Enemy" parent="." instance=ExtResource( "1_ci6in" )]
 position = Vector2( 98, 233 )
+enemy_hp = 4
 
 [node name="Player" parent="." instance=ExtResource( "2_14bgq" )]
 position = Vector2( 642, 228 )
 
 [node name="CheckPoint" parent="." instance=ExtResource( "3_ochx8" )]
 position = Vector2( 729, 244 )
+collision_layer = 0

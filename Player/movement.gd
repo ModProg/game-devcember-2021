@@ -9,9 +9,12 @@ func _on_update(delta):
 	
 	if abs(x_input) > 0:
 		target.get_node("Sprite").flip_h = x_input < 0
+		if x_input < 0:
+			target.get_node("AttackChecks").scale.x = -1
+		elif x_input > 0:
+			target.get_node("AttackChecks").scale.x = 1
 
 	target.velocity.y += delta * target.gravity
-	
 
 func _after_update(_delta):
 	target.velocity = target.move_and_slide(target.velocity, Vector2.UP)

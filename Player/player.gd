@@ -4,10 +4,13 @@ class_name Player
 # The Player script is only declaring variables
 # Those variables can be acccessed in your States with target.variable
 
-
 var velocity = Vector2()
 var movement = 0
 var double_jumped = false
+
+#Combat related
+var target_in_hitbox = []
+export (int) var melee_damage = 1
 
 export (int) var gravity = 2000
 export (int) var acceleration = 15
@@ -25,3 +28,9 @@ export (int) var air_friction = 8
 export (float) var coyote_time = 0.2
 export (float) var prejump_time = 0.3
 export (float) var jump_time = 0.2
+
+func _on_AttackArea_body_entered(body):
+	target_in_hitbox.append(body)
+
+func _on_AttackArea_body_exited(body):
+	target_in_hitbox.remove(target_in_hitbox.find(body))

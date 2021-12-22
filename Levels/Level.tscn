@@ -54,7 +54,6 @@ position = Vector2( 374, 263 )
 
 [node name="Player" parent="." instance=ExtResource( "8_8ltco" )]
 position = Vector2( 160, 375 )
-collision_layer = 2
 
 [node name="DialogueTrigger" parent="." instance=ExtResource( "9_i1gl8" )]
 position = Vector2( 449, 347 )
