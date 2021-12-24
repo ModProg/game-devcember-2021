@@ -11,22 +11,18 @@ func move_check () -> bool:
 			return true
 	return false
 
+func move_wall_check () -> bool:
+	if target.is_on_floor():
+		if target.wall_check_top.is_colliding() || target.wall_check_bottom.is_colliding():
+			return true
+	return false
+
+func move_floor_check () -> bool:
+	if target.is_on_floor():
+		if not target.ground_check.is_colliding():
+			return true
+	return false
+
 func flip () -> void:
 	target.flip ()
 	target.movement *= -1
-
-func jump () -> void:
-	var _s = change_state("SlimeJump")
-
-func jump_attack () -> void:
-	var _s = change_state("SlimeAttack")
-
-func _on_PlayerSpotArea_body_entered(body):
-	if not is_active("SlimeChase") || not is_active("SlimeJump") || not is_active("SlimeAttack"):
-		target.chase_target = body
-		var _s = change_state("SlimeChase")
-
-func _on_ChaseArea_body_exited(body):
-	if is_active("SlimeChase"):
-		target.chase_target = null
-		var _s = change_state("SlimePatrol")

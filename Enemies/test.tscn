@@ -166,6 +166,9 @@ debug = false
 
 [node name="SlimeEnemy" parent="." instance=ExtResource( "2_2w1s2" )]
 position = Vector2( 1371, 112 )
+attack_cooldown_time = 2.0
+air_attack_speed = 400
+attack_check_distance = 200
 
 [node name="Enemy" parent="." instance=ExtResource( "1_ci6in" )]
 position = Vector2( 98, 233 )

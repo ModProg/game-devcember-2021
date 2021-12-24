@@ -2,11 +2,15 @@ extends KinematicBody2D
 class_name SlimeEnemy
 
 onready var _attack_node := $AttackChecks
+onready var attack_area := $AttackChecks/AttackArea
 onready var _checks_node := $WalkChecks
 onready var ground_check := $WalkChecks/GroundCheck
 onready var wall_check_top := $WalkChecks/WallCheckTop
 onready var wall_check_bottom := $WalkChecks/WallCheckBottom
 onready var state_root := $StateRoot
+
+export (float) var attack_cooldown_time = 4.0
+onready var attack_cooldown_timer := $AttackCooldown
 
 var velocity = Vector2()
 export (int) var movement = 1
@@ -24,7 +28,11 @@ export (int) var jump_speed = 750
 export (int) var air_speed = 500
 export (int) var air_friction = 8
 
+#Combat related
+export (int) var jump_attack_speed = 500
 export (int) var air_attack_speed = 800
+export (int) var attack_check_distance = 150
+export (int) var melee_damage = 1
 
 export (float) var prejump_time = 0.3
 export (float) var jump_time = 0.2

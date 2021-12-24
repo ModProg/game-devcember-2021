@@ -17,11 +17,11 @@ height = 2.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ddyy0"]
 extents = Vector2( 144.5, 37.5 )
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kk1u"]
-extents = Vector2( 81, 38 )
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_pfo8t"]
 radius = 280.002
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yebcq"]
+radius = 12.0416
 
 [node name="SlimeEnemy" type="KinematicBody2D"]
 collision_layer = 4
@@ -41,25 +41,27 @@ shape = SubResource( "CapsuleShape2D_6e1na" )
 [node name="PlayerSpotArea" type="Area2D" parent="AttackChecks"]
 collision_layer = 0
 collision_mask = 2
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackChecks/PlayerSpotArea"]
 position = Vector2( 134.5, 0.5 )
 shape = SubResource( "RectangleShape2D_ddyy0" )
 
-[node name="AttackSpotArea" type="Area2D" parent="AttackChecks"]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackChecks/AttackSpotArea"]
-position = Vector2( 70, 0 )
-shape = SubResource( "RectangleShape2D_4kk1u" )
-
 [node name="ChaseArea" type="Area2D" parent="AttackChecks"]
 collision_layer = 0
 collision_mask = 2
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackChecks/ChaseArea"]
 shape = SubResource( "CircleShape2D_pfo8t" )
+
+[node name="AttackArea" type="Area2D" parent="AttackChecks"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackChecks/AttackArea"]
+shape = SubResource( "CircleShape2D_yebcq" )
 
 [node name="WalkChecks" type="Node2D" parent="."]
 
@@ -80,6 +82,8 @@ rotation = -1.5708
 enabled = true
 cast_to = Vector2( 0, 15 )
 
+[node name="AttackCooldown" type="Timer" parent="."]
+
 [node name="StateRoot" type="Node" parent="."]
 script = ExtResource( "1_22p4i" )
 fsm_owner = NodePath("..")
@@ -87,6 +91,8 @@ animation_player = NodePath("../AnimationPlayer")
 
 [node name="SlimeMovement" type="Node" parent="StateRoot"]
 script = ExtResource( "3_k5gc4" )
+fsm_owner = null
+animation_player = null
 
 [node name="SlimePatrol" type="Node" parent="StateRoot/SlimeMovement"]
 script = ExtResource( "4_s178y" )
@@ -100,9 +106,13 @@ animation_player = null
 
 [node name="SlimeChase" type="Node" parent="StateRoot/SlimeMovement"]
 script = ExtResource( "5_5oju7" )
+fsm_owner = null
+animation_player = null
 
 [node name="SlimeJump" type="Node" parent="StateRoot/SlimeMovement"]
 script = ExtResource( "8_jm4id" )
+fsm_owner = null
+animation_player = null
 
 [node name="SlimeStunned" type="Node" parent="StateRoot"]
 script = ExtResource( "9_88iyy" )
@@ -114,6 +124,8 @@ script = ExtResource( "10_67yws" )
 fsm_owner = null
 animation_player = null
 
-[connection signal="body_entered" from="AttackChecks/PlayerSpotArea" to="StateRoot/SlimeMovement" method="_on_PlayerSpotArea_body_entered"]
-[connection signal="body_entered" from="AttackChecks/AttackSpotArea" to="StateRoot/SlimeMovement/SlimeChase" method="_on_AttackSpotArea_body_entered"]
-[connection signal="body_exited" from="AttackChecks/ChaseArea" to="StateRoot/SlimeMovement" method="_on_ChaseArea_body_exited"]
+[connection signal="body_entered" from="AttackChecks/PlayerSpotArea" to="StateRoot/SlimeMovement/SlimePatrol" method="_on_PlayerSpotArea_body_entered"]
+[connection signal="body_exited" from="AttackChecks/ChaseArea" to="StateRoot/SlimeMovement/SlimeChase" method="_on_ChaseArea_body_exited"]
+[connection signal="body_entered" from="AttackChecks/AttackArea" to="StateRoot/SlimeMovement/SlimeAttack" method="_on_AttackArea_body_entered"]
+[connection signal="body_exited" from="AttackChecks/AttackArea" to="StateRoot/SlimeMovement/SlimeAttack" method="_on_AttackArea_body_exited"]
+[connection signal="timeout" from="AttackCooldown" to="StateRoot/SlimeMovement/SlimeChase" method="_on_AttackCooldown_timeout"]
