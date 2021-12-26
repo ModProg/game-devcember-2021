@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3]
+[gd_scene load_steps=12 format=3]
 
 [ext_resource path="res://Tiles/Tileseet.tres" type="TileSet" id="1_pr6a4"]
 [ext_resource path="res://Debugger.gd" type="Script" id="2_dwsjl"]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id="8_8ltco"]
 [ext_resource path="res://Dialogue/DialogueTrigger.tscn" type="PackedScene" id="9_i1gl8"]
 [ext_resource path="res://Dialogue/DialogueOnLoad.gd" type="Script" id="10_d6y2g"]
+[ext_resource path="res://Debug/PeriodicDamage.gd" type="Script" id="11_u5j7m"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -28,21 +29,20 @@ script = ExtResource( "2_dwsjl" )
 [node name="Ghost" parent="." instance=ExtResource( "3_57yfv" )]
 
 [node name="MainCamera" parent="." instance=ExtResource( "4_m2h8u" )]
-debug = false
 
 [node name="CameraAttractor" type="Node2D" parent="."]
-position = Vector2( 819, 243 )
+position = Vector2( 422, 172 )
 script = ExtResource( "5_fb75c" )
 outer_radius = 647.059
-inner_radius = 176.471
-debug = true
+inner_radius = 352.942
+zoom = 1.235
 
 [node name="CameraAttractor2" type="Node2D" parent="."]
-position = Vector2( 1639, 103 )
+position = Vector2( 2033, 330 )
 script = ExtResource( "5_fb75c" )
-outer_radius = 529.412
+outer_radius = 764.706
 inner_radius = 323.53
-debug = true
+zoom = 1.529
 
 [node name="Transition" parent="." instance=ExtResource( "6_rjnrs" )]
 position = Vector2( 2058, 351 )
@@ -62,3 +62,6 @@ timeline = "Test"
 [node name="DialogueOnLoad" type="Node" parent="."]
 script = ExtResource( "10_d6y2g" )
 timeline = "Intro"
+
+[node name="PeriodicPlayerDamage" type="Node" parent="."]
+script = ExtResource( "11_u5j7m" )

@@ -1,4 +1,5 @@
 extends Node
+class_name PlayerStatus
 
 export (int) var max_health
 export (int) var health
@@ -18,11 +19,13 @@ func add_health (heal) -> void:
 	health += heal
 	if health > max_health:
 		health = max_health
+	emit_signal("change")
 
 func reduce_health (damage) -> void:
 	health -= damage
 	if health <= 0:
 		_player_death ()
+	emit_signal("change")
 
 func _player_death () -> void:
 	var gamecontroller = get_node("/root/GameController")
@@ -44,3 +47,6 @@ func save():
 		"has_dash" : has_dash,
 	}
 	return save_dict
+
+
+signal change

@@ -6,7 +6,10 @@ class_name Player
 
 var velocity = Vector2()
 var movement = 0
+var dir = 1
 var double_jumped = false
+var dashed = false
+var dashing = false
 
 #Combat related
 var target_in_hitbox = []
@@ -42,3 +45,5 @@ func receive_damage (damage) -> void:
 func player_death () -> void:
 	var state = get_node("StateRoot")
 	state.change_state("")
+export (float) var dash_duration = 0.2
+export (float) var dash_velocity = 2000

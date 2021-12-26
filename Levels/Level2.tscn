@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource path="res://Debugger.gd" type="Script" id="1"]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id="2"]
+[ext_resource path="res://Camera/MainCamera.tscn" type="PackedScene" id="2_nl1ey"]
 [ext_resource path="res://Game Controller/CheckPoint.tscn" type="PackedScene" id="3"]
 [ext_resource path="res://Game Controller/Transition.tscn" type="PackedScene" id="4"]
 
@@ -153,8 +154,7 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( "2" )]
 position = Vector2( 160, 375 )
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-current = true
+[node name="MainCamera" parent="." instance=ExtResource( "2_nl1ey" )]
 
 [node name="Debugger" type="Node" parent="."]
 script = ExtResource( "1" )

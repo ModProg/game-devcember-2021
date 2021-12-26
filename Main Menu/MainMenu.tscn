@@ -40,6 +40,10 @@ __meta__ = {
 margin_top = 18.0
 margin_right = 106.0
 margin_bottom = 38.0
+focus_neighbour_top = NodePath("../QuitGameButton")
+focus_neighbour_bottom = NodePath("../NewGameButton")
+focus_next = NodePath("../NewGameButton")
+focus_previous = NodePath("../QuitGameButton")
 text = "Resume Game"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -49,6 +53,10 @@ __meta__ = {
 margin_top = 42.0
 margin_right = 106.0
 margin_bottom = 62.0
+focus_neighbour_top = NodePath("../ResumeButton")
+focus_neighbour_bottom = NodePath("../QuitGameButton")
+focus_next = NodePath("../QuitGameButton")
+focus_previous = NodePath("../ResumeButton")
 text = "New Game"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -58,6 +66,10 @@ __meta__ = {
 margin_top = 66.0
 margin_right = 106.0
 margin_bottom = 86.0
+focus_neighbour_top = NodePath("../NewGameButton")
+focus_neighbour_bottom = NodePath("../ResumeButton")
+focus_next = NodePath("../ResumeButton")
+focus_previous = NodePath("../NewGameButton")
 text = "Quit"
 __meta__ = {
 "_edit_use_anchors_": false

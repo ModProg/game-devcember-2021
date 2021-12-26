@@ -14,6 +14,7 @@
 [ext_resource path="res://Player/movements/land.gd" type="Script" id="11"]
 [ext_resource path="res://Player/MeleeAttack_3.gd" type="Script" id="11_0myoa"]
 [ext_resource path="res://Player/movement.gd" type="Script" id="13"]
+[ext_resource path="res://Player/movements/Dash.gd" type="Script" id="13_chda0"]
 [ext_resource path="res://Player/movements/walk.gd" type="Script" id="15"]
 [ext_resource path="res://Player/movements/in_air.gd" type="Script" id="16"]
 [ext_resource path="res://Player/player.gd" type="Script" id="17"]
@@ -633,6 +634,8 @@ animation_player = null
 
 [node name="PlayerDead" type="Node" parent="StateRoot/RegionMovement"]
 script = ExtResource( "21_bc6tv" )
+[node name="Dash" type="Node" parent="StateRoot/RegionMovement/InAir"]
+script = ExtResource( "13_chda0" )
 fsm_owner = null
 animation_player = null
 
