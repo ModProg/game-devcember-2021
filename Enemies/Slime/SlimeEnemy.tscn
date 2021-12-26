@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3]
+[gd_scene load_steps=21 format=3]
 
 [ext_resource path="res://addons/xsm/state_root.gd" type="Script" id="1_22p4i"]
 [ext_resource path="res://Enemies/Slime/SlimeEnemy.gd" type="Script" id="1_agtef"]
@@ -10,6 +10,38 @@
 [ext_resource path="res://Enemies/Slime/SlimeAttack.gd" type="Script" id="9_6ap5w"]
 [ext_resource path="res://Enemies/Slime/SlimeStunned.gd" type="Script" id="9_88iyy"]
 [ext_resource path="res://Enemies/Slime/SlimeDead.gd" type="Script" id="10_67yws"]
+
+[sub_resource type="Animation" id="Animation_5qfhy"]
+resource_name = "SlimeDeath"
+tracks/0/type = "method"
+tracks/0/path = NodePath("StateRoot/SlimeDead")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_dead_animation_finished"
+} ]
+}
+
+[sub_resource type="Animation" id="Animation_fxbrl"]
+resource_name = "SlimeFall"
+
+[sub_resource type="Animation" id="Animation_gkbe5"]
+resource_name = "SlimeFlyup"
+
+[sub_resource type="Animation" id="Animation_jolud"]
+resource_name = "SlimeJump"
+
+[sub_resource type="Animation" id="Animation_eumjq"]
+resource_name = "SlimeStunned"
+
+[sub_resource type="Animation" id="Animation_austs"]
+resource_name = "SlimeWalk"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6e1na"]
 height = 2.0
@@ -28,6 +60,12 @@ collision_layer = 4
 script = ExtResource( "1_agtef" )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/SlimeDeath = SubResource( "Animation_5qfhy" )
+anims/SlimeFall = SubResource( "Animation_fxbrl" )
+anims/SlimeFlyup = SubResource( "Animation_gkbe5" )
+anims/SlimeJump = SubResource( "Animation_jolud" )
+anims/SlimeStunned = SubResource( "Animation_eumjq" )
+anims/SlimeWalk = SubResource( "Animation_austs" )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( "2_bp24q" )

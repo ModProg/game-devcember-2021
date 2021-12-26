@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3]
 
-[ext_resource path="res://Enemies/BlindSkeleton/Enemy.tscn" type="PackedScene" id="1_ci6in"]
+[ext_resource path="res://Enemies/BlindSkeleton/BlindSkeletonEnemy.tscn" type="PackedScene" id="1_ci6in"]
 [ext_resource path="res://Camera/MainCamera.tscn" type="PackedScene" id="1_qta0j"]
 [ext_resource path="res://Enemies/Slime/SlimeEnemy.tscn" type="PackedScene" id="2_2w1s2"]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id="2_14bgq"]
@@ -166,13 +166,10 @@ debug = false
 
 [node name="SlimeEnemy" parent="." instance=ExtResource( "2_2w1s2" )]
 position = Vector2( 1371, 112 )
-attack_cooldown_time = 2.0
+attack_cooldown_time = 1.0
 air_attack_speed = 400
 attack_check_distance = 200
-
-[node name="Enemy" parent="." instance=ExtResource( "1_ci6in" )]
-position = Vector2( 98, 233 )
-enemy_hp = 4
+enemy_hp = 2
 
 [node name="Player" parent="." instance=ExtResource( "2_14bgq" )]
 position = Vector2( 642, 228 )
@@ -180,3 +177,5 @@ position = Vector2( 642, 228 )
 [node name="CheckPoint" parent="." instance=ExtResource( "3_ochx8" )]
 position = Vector2( 729, 244 )
 collision_layer = 0
+
+[node name="BlindSkeletonEnemy" parent="." instance=ExtResource( "1_ci6in" )]

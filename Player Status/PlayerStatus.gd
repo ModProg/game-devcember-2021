@@ -25,7 +25,9 @@ func reduce_health (damage) -> void:
 		_player_death ()
 
 func _player_death () -> void:
-	pass
+	var gamecontroller = get_node("/root/GameController")
+	gamecontroller.player_node.player_death()
+	gamecontroller.game_over()
 
 func save():
 	var save_dict = {

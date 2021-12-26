@@ -34,3 +34,11 @@ func _on_AttackArea_body_entered(body):
 
 func _on_AttackArea_body_exited(body):
 	target_in_hitbox.remove(target_in_hitbox.find(body))
+
+func receive_damage (damage) -> void:
+	var gamecontroller = get_node("/root/GameController")
+	gamecontroller.player_status_node.reduce_health(damage)
+
+func player_death () -> void:
+	var state = get_node("StateRoot")
+	state.change_state("")

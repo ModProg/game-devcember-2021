@@ -2,7 +2,6 @@ tool
 extends State
 
 func _on_enter(_args):
-#	print ("Jump")
 	play("Jump")
 	target.velocity.y = -target.jump_speed
 

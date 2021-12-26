@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3]
+[gd_scene load_steps=44 format=3]
 
 [ext_resource path="res://Player/movements/double_jump.gd" type="Script" id="1"]
 [ext_resource path="res://Player/movements/fall.gd" type="Script" id="2"]
@@ -17,8 +17,139 @@
 [ext_resource path="res://Player/movements/walk.gd" type="Script" id="15"]
 [ext_resource path="res://Player/movements/in_air.gd" type="Script" id="16"]
 [ext_resource path="res://Player/player.gd" type="Script" id="17"]
+[ext_resource path="res://Player/AirMeleeAttack.gd" type="Script" id="17_4h1jy"]
+[ext_resource path="res://Player/AirMeleeAttack_1.gd" type="Script" id="18_6wdit"]
+[ext_resource path="res://Player/AirMeleeAttack_2.gd" type="Script" id="19_dwwgl"]
+[ext_resource path="res://Player/AirMeleeAttack_3.gd" type="Script" id="20_a2h8o"]
+[ext_resource path="res://Player/PlayerDead.gd" type="Script" id="21_bc6tv"]
 
 [sub_resource type="CapsuleShape2D" id="15"]
+
+[sub_resource type="Animation" id="Animation_y7xfi"]
+resource_name = "AirMeleeAttack_1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 5, 6, 5, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AttackChecks/AttackArea/Polygon2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("StateRoot/RegionMovement/InAir/AirMeleeAttack/AirMeleeAttack_1")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "on_attack_animation_finished"
+} ]
+}
+
+[sub_resource type="Animation" id="Animation_h0wgi"]
+resource_name = "AirMeleeAttack_2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 5, 6, 5, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AttackChecks/AttackArea/Polygon2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("StateRoot/RegionMovement/InAir/AirMeleeAttack/AirMeleeAttack_2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "on_attack_animation_finished"
+} ]
+}
+
+[sub_resource type="Animation" id="Animation_7ohge"]
+resource_name = "AirMeleeAttack_3"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 5, 6, 5, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AttackChecks/AttackArea/Polygon2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("StateRoot/RegionMovement/InAir/AirMeleeAttack/AirMeleeAttack_3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "on_attack_animation_finished"
+} ]
+}
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Brake"
@@ -53,6 +184,22 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 3 ]
+}
+
+[sub_resource type="Animation" id="Animation_hv4oj"]
+resource_name = "Death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.933333, 0.556863, 0.156863, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
 [sub_resource type="Animation" id="4"]
@@ -182,31 +329,31 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 5, 6, 5, 0 ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath("StateRoot/RegionMovement/OnGround/GroundMeleeAttack/MeleeAttack_1")
+tracks/1/type = "value"
+tracks/1/path = NodePath("AttackChecks/AttackArea/Polygon2D:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("StateRoot/RegionMovement/OnGround/GroundMeleeAttack/MeleeAttack_1")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0.5 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "on_attack_animation_finished"
 } ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("AttackChecks/AttackArea/Polygon2D:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id="Animation_xm5un"]
@@ -443,8 +590,6 @@ animation_player = null
 
 [node name="InAir" type="Node" parent="StateRoot/RegionMovement"]
 script = ExtResource( "16" )
-fsm_owner = null
-animation_player = null
 
 [node name="Idle" type="Node" parent="StateRoot/RegionMovement/InAir"]
 script = ExtResource( "5" )
@@ -466,6 +611,31 @@ script = ExtResource( "1" )
 fsm_owner = null
 animation_player = null
 
+[node name="AirMeleeAttack" type="Node" parent="StateRoot/RegionMovement/InAir"]
+script = ExtResource( "17_4h1jy" )
+fsm_owner = null
+animation_player = null
+
+[node name="AirMeleeAttack_1" type="Node" parent="StateRoot/RegionMovement/InAir/AirMeleeAttack"]
+script = ExtResource( "18_6wdit" )
+fsm_owner = null
+animation_player = null
+
+[node name="AirMeleeAttack_2" type="Node" parent="StateRoot/RegionMovement/InAir/AirMeleeAttack"]
+script = ExtResource( "19_dwwgl" )
+fsm_owner = null
+animation_player = null
+
+[node name="AirMeleeAttack_3" type="Node" parent="StateRoot/RegionMovement/InAir/AirMeleeAttack"]
+script = ExtResource( "20_a2h8o" )
+fsm_owner = null
+animation_player = null
+
+[node name="PlayerDead" type="Node" parent="StateRoot/RegionMovement"]
+script = ExtResource( "21_bc6tv" )
+fsm_owner = null
+animation_player = null
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -9 )
 shape = SubResource( "15" )
@@ -476,8 +646,12 @@ texture = ExtResource( "8" )
 hframes = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/AirMeleeAttack_1 = SubResource( "Animation_y7xfi" )
+anims/AirMeleeAttack_2 = SubResource( "Animation_h0wgi" )
+anims/AirMeleeAttack_3 = SubResource( "Animation_7ohge" )
 anims/Brake = SubResource( "2" )
 anims/Crouch = SubResource( "3" )
+anims/Death = SubResource( "Animation_hv4oj" )
 anims/Fall = SubResource( "4" )
 anims/FlyUp = SubResource( "5" )
 anims/GreenToPurple = SubResource( "6" )

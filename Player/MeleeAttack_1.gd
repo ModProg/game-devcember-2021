@@ -2,7 +2,6 @@ tool
 extends State
 
 func _on_enter(_args) -> void:
-	print("MeleeAttack_1")
 	play("MeleeAttack_1")
 
 func _after_enter(args) -> void:

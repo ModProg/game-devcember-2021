@@ -42,9 +42,6 @@ export (float) var stun_time = 0.5
 export (int) var enemy_hp = 1
 export (int) var attack_dmg = 1
 
-func _ready():
-	state_root.change_state("")
-
 func flip () -> void:
 	_attack_node.scale.x *= -1
 	_checks_node.scale.x *= -1
@@ -54,7 +51,7 @@ func receive_damage (damage) -> void:
 	if enemy_hp <= 0:
 		enemy_death()
 	else:
-		state_root.change_state("")
+		state_root.change_state("SlimeStunned")
 
 func enemy_death () -> void:
-	state_root.change_state("")
+	state_root.change_state("SlimeDead")

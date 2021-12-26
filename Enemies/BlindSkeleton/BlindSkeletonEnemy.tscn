@@ -91,7 +91,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id="2"]
 extents = Vector2( 56.25, 17.5 )
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="BlindSkeletonEnemy" type="KinematicBody2D"]
 position = Vector2( 218, 138 )
 collision_layer = 4
 script = ExtResource( "1_3pq2i" )
@@ -100,7 +100,7 @@ script = ExtResource( "1_3pq2i" )
 shape = SubResource( "1" )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.976471, 0.113725, 0.0470588, 1 )
+modulate = Color( 0.509804, 0.0784312, 0.0450981, 1 )
 scale = Vector2( 0.320001, 0.640001 )
 texture = ExtResource( "2_rag5y" )
 
@@ -185,3 +185,5 @@ animation_player = null
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateRoot/BlindSkeletonMovement/BlindSkeletonAttackState" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateRoot/BlindSkeletonDead" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="Attack/AttackTrigger" to="StateRoot/BlindSkeletonMovement/BlindSkeletonAttackState" method="_on_AttackTrigger_body_entered"]
+[connection signal="body_exited" from="Attack/AttackTrigger" to="StateRoot/BlindSkeletonMovement/BlindSkeletonAttackState" method="_on_AttackTrigger_body_exited"]

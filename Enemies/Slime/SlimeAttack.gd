@@ -31,4 +31,5 @@ func _on_AttackArea_body_entered(body):
 		_apply_damage ()
 
 func _on_AttackArea_body_exited(body):
-	target_in_hitbox.remove(target_in_hitbox.find(body))
+	if target_in_hitbox.size() > 0:
+		target_in_hitbox.remove(target_in_hitbox.find(body))
