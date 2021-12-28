@@ -4,8 +4,6 @@ extends State
 
 func _on_enter(args) -> void:
 	target.double_jumped = false
-	target.dashed = false
-
 
 func _on_update(delta):
 	if abs(target.movement) > 0:

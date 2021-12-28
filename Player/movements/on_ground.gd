@@ -1,6 +1,8 @@
 tool
 extends State
 
+func _on_enter(_args) -> void:
+	target.dashed = false
 
 # FUNCTIONS TO INHERIT #
 func _on_update(delta):

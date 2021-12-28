@@ -20,3 +20,7 @@ func _on_update(delta):
 
 func _after_update(_delta):
 	target.velocity = target.move_and_slide(target.velocity, Vector2.UP)
+
+func _on_timeout(name):
+	if name == "ground_dash_timeout":
+		target.ground_dashed = false

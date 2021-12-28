@@ -9,6 +9,7 @@ var movement = 0
 var dir = 1
 var double_jumped = false
 var dashed = false
+var ground_dashed = false
 var dashing = false
 
 #Combat related
@@ -47,3 +48,5 @@ func player_death () -> void:
 	state.change_state("")
 export (float) var dash_duration = 0.2
 export (float) var dash_velocity = 2000
+# Max 1 dash per second on ground
+export (float) var dash_ground_interval = 1

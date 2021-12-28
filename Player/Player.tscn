@@ -546,8 +546,6 @@ animation_player = NodePath("../AnimationPlayer")
 
 [node name="RegionMovement" type="Node" parent="StateRoot"]
 script = ExtResource( "13" )
-fsm_owner = null
-animation_player = null
 
 [node name="OnGround" type="Node" parent="StateRoot/RegionMovement"]
 script = ExtResource( "7" )
