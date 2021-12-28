@@ -4,6 +4,9 @@
 
 [node name="PlayerStatus" type="Node2D" groups=["Persist"]]
 script = ExtResource( "1" )
-max_health = 100
-health = 100
-health_potion_max = 10
+max_health = 5
+health = 5
+max_mana = 5
+mana = 5
+health_potion_amount = 1
+health_potion_max = 1

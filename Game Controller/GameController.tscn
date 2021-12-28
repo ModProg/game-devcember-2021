@@ -11,7 +11,7 @@ pause_mode = 2
 script = ExtResource( "1" )
 first_level = "res://Levels/Level.tscn"
 main_menu_scene = "res://Main Menu/MainMenu.tscn"
-player_status = "res://Player Status/PlayerStatus.tscn"
+player_status_scene = "res://Player Status/PlayerStatus.tscn"
 
 [node name="DarkenScreen" type="CanvasLayer" parent="."]
 

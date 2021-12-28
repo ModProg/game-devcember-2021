@@ -1,0 +1,189 @@
+[gd_scene load_steps=17 format=3]
+
+[ext_resource path="res://Enemies/BlindSkeleton/BlindSkeleton.gd" type="Script" id="1_3pq2i"]
+[ext_resource path="res://icon.png" type="Texture" id="2_rag5y"]
+[ext_resource path="res://addons/xsm/state_root.gd" type="Script" id="3_bfmp4"]
+[ext_resource path="res://Enemies/BlindSkeleton/BlindSkeletonMovement.gd" type="Script" id="4_bqmfy"]
+[ext_resource path="res://Enemies/BlindSkeleton/BlindSkeletonWalkState.gd" type="Script" id="5_xdy4q"]
+[ext_resource path="res://Enemies/BlindSkeleton/BlindSkeletonIdleState.gd" type="Script" id="6_uvxg3"]
+[ext_resource path="res://Enemies/BlindSkeleton/BlindSkeletonStunned.gd" type="Script" id="7_16nb7"]
+[ext_resource path="res://Enemies/BlindSkeleton/BlindSkeletonAttackState.gd" type="Script" id="8_lfs1u"]
+[ext_resource path="res://Enemies/BlindSkeleton/BlindSkeletonDead.gd" type="Script" id="9_b5w74"]
+
+[sub_resource type="CapsuleShape2D" id="1"]
+
+[sub_resource type="Animation" id="4"]
+resource_name = "EnemyAttack"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.976471, 0.113725, 0.0470588, 1 ), Color( 0.976471, 0.113725, 0.0470588, 1 ) ]
+}
+
+[sub_resource type="Animation" id="6"]
+resource_name = "EnemyDeath"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.976471, 0.113725, 0.0470588, 1 ), Color( 0.0431373, 0.0431373, 0.0431373, 1 ) ]
+}
+
+[sub_resource type="Animation" id="3"]
+resource_name = "EnemyIdle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.207843, 0.913725, 0.0588235, 1 ), Color( 0.207843, 0.913725, 0.0588235, 1 ) ]
+}
+
+[sub_resource type="Animation" id="7"]
+resource_name = "EnemyStun"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.952941, 0.0117647, 0.984314, 1 ), Color( 0.952941, 0.0117647, 0.984314, 1 ) ]
+}
+
+[sub_resource type="Animation" id="5"]
+resource_name = "EnemyWalk"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0352941, 0.964706, 0.988235, 1 ), Color( 0, 0.94902, 0.92549, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id="2"]
+extents = Vector2( 56.25, 17.5 )
+
+[node name="BlindSkeletonEnemy" type="KinematicBody2D"]
+position = Vector2( 218, 138 )
+collision_layer = 4
+script = ExtResource( "1_3pq2i" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( "1" )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.509804, 0.0784312, 0.0450981, 1 )
+scale = Vector2( 0.320001, 0.640001 )
+texture = ExtResource( "2_rag5y" )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/EnemyAttack = SubResource( "4" )
+anims/EnemyDeath = SubResource( "6" )
+anims/EnemyIdle = SubResource( "3" )
+anims/EnemyStun = SubResource( "7" )
+anims/EnemyWalk = SubResource( "5" )
+
+[node name="Attack" type="Node2D" parent="."]
+
+[node name="AttackTrigger" type="Area2D" parent="Attack"]
+position = Vector2( 19, -2 )
+collision_layer = 4
+collision_mask = 2
+monitorable = false
+
+[node name="HitScan" type="CollisionShape2D" parent="Attack/AttackTrigger"]
+position = Vector2( 3.25, -0.5 )
+scale = Vector2( 0.2, 1 )
+shape = SubResource( "2" )
+
+[node name="PlayerCheck" type="RayCast2D" parent="Attack"]
+rotation = -1.5708
+scale = Vector2( 1, 0.55 )
+enabled = true
+collision_mask = 2
+
+[node name="WalkChecks" type="Node2D" parent="."]
+
+[node name="GroundCheck" type="RayCast2D" parent="WalkChecks"]
+position = Vector2( 10, 0 )
+enabled = true
+
+[node name="WallCheckTop" type="RayCast2D" parent="WalkChecks"]
+position = Vector2( 0, -17 )
+rotation = -1.5708
+scale = Vector2( 1, 0.25 )
+enabled = true
+
+[node name="WallCheckBottom" type="RayCast2D" parent="WalkChecks"]
+position = Vector2( 0, 18 )
+rotation = -1.5708
+scale = Vector2( 1, 0.25 )
+enabled = true
+
+[node name="StateRoot" type="Node" parent="."]
+script = ExtResource( "3_bfmp4" )
+fsm_owner = NodePath("..")
+animation_player = NodePath("../AnimationPlayer")
+
+[node name="BlindSkeletonMovement" type="Node" parent="StateRoot"]
+script = ExtResource( "4_bqmfy" )
+fsm_owner = null
+animation_player = null
+
+[node name="BlindSkeletonWalkState" type="Node" parent="StateRoot/BlindSkeletonMovement"]
+script = ExtResource( "5_xdy4q" )
+fsm_owner = null
+animation_player = null
+
+[node name="BlindSkeletonIdleState" type="Node" parent="StateRoot/BlindSkeletonMovement"]
+script = ExtResource( "6_uvxg3" )
+fsm_owner = null
+animation_player = null
+
+[node name="BlindSkeletonAttackState" type="Node" parent="StateRoot/BlindSkeletonMovement"]
+script = ExtResource( "8_lfs1u" )
+fsm_owner = null
+animation_player = null
+
+[node name="BlindSkeletonStunned" type="Node" parent="StateRoot"]
+script = ExtResource( "7_16nb7" )
+fsm_owner = null
+animation_player = null
+
+[node name="BlindSkeletonDead" type="Node" parent="StateRoot"]
+script = ExtResource( "9_b5w74" )
+fsm_owner = null
+animation_player = null
+
+[connection signal="animation_finished" from="AnimationPlayer" to="StateRoot/BlindSkeletonMovement/BlindSkeletonAttackState" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="StateRoot/BlindSkeletonDead" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="Attack/AttackTrigger" to="StateRoot/BlindSkeletonMovement/BlindSkeletonAttackState" method="_on_AttackTrigger_body_entered"]
+[connection signal="body_exited" from="Attack/AttackTrigger" to="StateRoot/BlindSkeletonMovement/BlindSkeletonAttackState" method="_on_AttackTrigger_body_exited"]

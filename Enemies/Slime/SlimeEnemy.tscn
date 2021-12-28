@@ -1,0 +1,169 @@
+[gd_scene load_steps=21 format=3]
+
+[ext_resource path="res://addons/xsm/state_root.gd" type="Script" id="1_22p4i"]
+[ext_resource path="res://Enemies/Slime/SlimeEnemy.gd" type="Script" id="1_agtef"]
+[ext_resource path="res://Player/assets/slime.png" type="Texture" id="2_bp24q"]
+[ext_resource path="res://Enemies/Slime/SlimeMovement.gd" type="Script" id="3_k5gc4"]
+[ext_resource path="res://Enemies/Slime/SlimePatrol.gd" type="Script" id="4_s178y"]
+[ext_resource path="res://Enemies/Slime/SlimeChase.gd" type="Script" id="5_5oju7"]
+[ext_resource path="res://Enemies/Slime/SlimeJump.gd" type="Script" id="8_jm4id"]
+[ext_resource path="res://Enemies/Slime/SlimeAttack.gd" type="Script" id="9_6ap5w"]
+[ext_resource path="res://Enemies/Slime/SlimeStunned.gd" type="Script" id="9_88iyy"]
+[ext_resource path="res://Enemies/Slime/SlimeDead.gd" type="Script" id="10_67yws"]
+
+[sub_resource type="Animation" id="Animation_5qfhy"]
+resource_name = "SlimeDeath"
+tracks/0/type = "method"
+tracks/0/path = NodePath("StateRoot/SlimeDead")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "_dead_animation_finished"
+} ]
+}
+
+[sub_resource type="Animation" id="Animation_fxbrl"]
+resource_name = "SlimeFall"
+
+[sub_resource type="Animation" id="Animation_gkbe5"]
+resource_name = "SlimeFlyup"
+
+[sub_resource type="Animation" id="Animation_jolud"]
+resource_name = "SlimeJump"
+
+[sub_resource type="Animation" id="Animation_eumjq"]
+resource_name = "SlimeStunned"
+
+[sub_resource type="Animation" id="Animation_austs"]
+resource_name = "SlimeWalk"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6e1na"]
+height = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddyy0"]
+extents = Vector2( 144.5, 37.5 )
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pfo8t"]
+radius = 280.002
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yebcq"]
+radius = 12.0416
+
+[node name="SlimeEnemy" type="KinematicBody2D"]
+collision_layer = 4
+script = ExtResource( "1_agtef" )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/SlimeDeath = SubResource( "Animation_5qfhy" )
+anims/SlimeFall = SubResource( "Animation_fxbrl" )
+anims/SlimeFlyup = SubResource( "Animation_gkbe5" )
+anims/SlimeJump = SubResource( "Animation_jolud" )
+anims/SlimeStunned = SubResource( "Animation_eumjq" )
+anims/SlimeWalk = SubResource( "Animation_austs" )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( "2_bp24q" )
+hframes = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( "CapsuleShape2D_6e1na" )
+
+[node name="AttackChecks" type="Node2D" parent="."]
+
+[node name="PlayerSpotArea" type="Area2D" parent="AttackChecks"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackChecks/PlayerSpotArea"]
+position = Vector2( 134.5, 0.5 )
+shape = SubResource( "RectangleShape2D_ddyy0" )
+
+[node name="ChaseArea" type="Area2D" parent="AttackChecks"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackChecks/ChaseArea"]
+shape = SubResource( "CircleShape2D_pfo8t" )
+
+[node name="AttackArea" type="Area2D" parent="AttackChecks"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackChecks/AttackArea"]
+shape = SubResource( "CircleShape2D_yebcq" )
+
+[node name="WalkChecks" type="Node2D" parent="."]
+
+[node name="GroundCheck" type="RayCast2D" parent="WalkChecks"]
+position = Vector2( 11, 0 )
+enabled = true
+cast_to = Vector2( 0, 25 )
+
+[node name="WallCheckTop" type="RayCast2D" parent="WalkChecks"]
+position = Vector2( 0, -10 )
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 15 )
+
+[node name="WallCheckBottom" type="RayCast2D" parent="WalkChecks"]
+position = Vector2( 0, 10 )
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 15 )
+
+[node name="AttackCooldown" type="Timer" parent="."]
+
+[node name="StateRoot" type="Node" parent="."]
+script = ExtResource( "1_22p4i" )
+fsm_owner = NodePath("..")
+animation_player = NodePath("../AnimationPlayer")
+
+[node name="SlimeMovement" type="Node" parent="StateRoot"]
+script = ExtResource( "3_k5gc4" )
+fsm_owner = null
+animation_player = null
+
+[node name="SlimePatrol" type="Node" parent="StateRoot/SlimeMovement"]
+script = ExtResource( "4_s178y" )
+fsm_owner = null
+animation_player = null
+
+[node name="SlimeAttack" type="Node" parent="StateRoot/SlimeMovement"]
+script = ExtResource( "9_6ap5w" )
+fsm_owner = null
+animation_player = null
+
+[node name="SlimeChase" type="Node" parent="StateRoot/SlimeMovement"]
+script = ExtResource( "5_5oju7" )
+fsm_owner = null
+animation_player = null
+
+[node name="SlimeJump" type="Node" parent="StateRoot/SlimeMovement"]
+script = ExtResource( "8_jm4id" )
+fsm_owner = null
+animation_player = null
+
+[node name="SlimeStunned" type="Node" parent="StateRoot"]
+script = ExtResource( "9_88iyy" )
+fsm_owner = null
+animation_player = null
+
+[node name="SlimeDead" type="Node" parent="StateRoot"]
+script = ExtResource( "10_67yws" )
+fsm_owner = null
+animation_player = null
+
+[connection signal="body_entered" from="AttackChecks/PlayerSpotArea" to="StateRoot/SlimeMovement/SlimePatrol" method="_on_PlayerSpotArea_body_entered"]
+[connection signal="body_exited" from="AttackChecks/ChaseArea" to="StateRoot/SlimeMovement/SlimeChase" method="_on_ChaseArea_body_exited"]
+[connection signal="body_entered" from="AttackChecks/AttackArea" to="StateRoot/SlimeMovement/SlimeAttack" method="_on_AttackArea_body_entered"]
+[connection signal="body_exited" from="AttackChecks/AttackArea" to="StateRoot/SlimeMovement/SlimeAttack" method="_on_AttackArea_body_exited"]
+[connection signal="timeout" from="AttackCooldown" to="StateRoot/SlimeMovement/SlimeChase" method="_on_AttackCooldown_timeout"]

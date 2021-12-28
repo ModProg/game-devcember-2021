@@ -18,3 +18,5 @@ func _on_update(delta):
 		var _s = change_state("Jump")
 	elif !target.is_on_floor():
 		var _s = change_state("Fall")
+	elif Input.is_action_just_pressed("Attack"):
+		var _s = change_state("GroundMeleeAttack")

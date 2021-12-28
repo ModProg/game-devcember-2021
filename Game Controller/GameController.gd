@@ -7,7 +7,7 @@ export var main_menu_scene := ""
 var current_scene: Node = null
 
 #Player status scene file name
-export var player_status := ""
+export var player_status_scene := ""
 #Player status node
 var player_status_node: PlayerStatus = null
 #reference to player node
@@ -45,7 +45,7 @@ func _ready():
 
 func create_player_status () -> void:
 	if player_status_node == null:
-		var status = ResourceLoader.load(player_status)
+		var status = ResourceLoader.load(player_status_scene)
 		player_status_node = status.instance()
 		add_child(player_status_node)
 
@@ -82,7 +82,6 @@ func save_checkpoint (spawn_point_data) -> void:
 
 	#save level to reload
 	var level_data = {"level" : current_scene.get_filename()}
-	print(level_data)
 	save_game.store_line(to_json(level_data))
 
 	#save player status
@@ -129,6 +128,7 @@ func pause_menu () -> void:
 
 func resume_paused () -> void:
 	pause_menu_screen.hide()
+	game_over_screen.hide()
 	if !dialogue:
 		get_tree().paused = false
 	state = GameState.PLAYING

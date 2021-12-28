@@ -11,10 +11,9 @@ func _on_enter(_args):
 	if target.velocity.y >= 0: play("Fall")
 	else: play("FlyUp")
 	if state_root.was_state_active("OnGround"):
-		print("Fall from Walk")
 		add_timer("CoyoteTime", target.coyote_time)
 	if state_root.was_state_active("Jump"):
-		print("Fall from Jump")
+		pass
 
 
 func _on_update(_delta):
@@ -30,13 +29,10 @@ func _on_update(_delta):
 
 	var is_jump_pressed = Input.is_action_just_pressed("jump")
 	if is_jump_pressed && get_node_or_null("CoyoteTime") != null:
-		print("Coyote jump")
 		var _s = change_state("Jump")
 	elif is_jump_pressed && not target.double_jumped and not raycast.is_colliding():
-		print("Double jump")
 		var _s = change_state("DoubleJump")
 	elif is_jump_pressed:
-		print("Pre jump")
 		var _t = add_timer("PreJump",target.prejump_time)
 
 
